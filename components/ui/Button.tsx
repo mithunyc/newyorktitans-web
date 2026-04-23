@@ -41,15 +41,15 @@ type ButtonProps = CommonProps & {
 };
 
 const base =
-  "inline-flex items-center justify-center font-sans font-semibold transition-[transform,background-color,border-color,color] duration-200 ease-out select-none disabled:opacity-60 disabled:cursor-not-allowed focus-visible:outline-none";
+  "inline-flex items-center justify-center font-sans font-semibold transition-[transform,background-color,border-color,color] duration-200 ease-out select-none disabled:opacity-60 disabled:cursor-not-allowed focus-visible:outline-none [&_*]:![color:inherit]";
 
 const variants: Record<Variant, string> = {
   primary:
-    "rounded-md bg-gold text-midnight hover:bg-[#C29844] active:-translate-y-px focus-visible:ring-ring focus-visible:ring-blue focus-visible:ring-offset-2 focus-visible:ring-offset-midnight",
+    "rounded-md bg-gold !text-midnight hover:bg-[#C29844] active:-translate-y-px focus-visible:ring-ring focus-visible:ring-blue focus-visible:ring-offset-2 focus-visible:ring-offset-midnight",
   secondary:
-    "rounded-md border border-white/60 bg-transparent text-white hover:border-white active:-translate-y-px focus-visible:ring-ring focus-visible:ring-blue focus-visible:ring-offset-2 focus-visible:ring-offset-midnight",
+    "rounded-md border border-white/60 bg-transparent !text-white hover:border-white active:-translate-y-px focus-visible:ring-ring focus-visible:ring-blue focus-visible:ring-offset-2 focus-visible:ring-offset-midnight",
   tertiary:
-    "relative bg-transparent p-0 text-white underline decoration-gold decoration-2 underline-offset-4 hover:decoration-white focus-visible:ring-ring focus-visible:ring-blue focus-visible:ring-offset-2 focus-visible:ring-offset-midnight",
+    "relative bg-transparent p-0 !text-white underline decoration-gold decoration-2 underline-offset-4 hover:decoration-white focus-visible:ring-ring focus-visible:ring-blue focus-visible:ring-offset-2 focus-visible:ring-offset-midnight",
 };
 
 const sizes: Record<Size, string> = {
