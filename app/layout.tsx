@@ -14,10 +14,8 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import "./globals.css";
 
-const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://newyorktitans.org";
-const PLAUSIBLE_DOMAIN =
-  process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN ?? "newyorktitans.org";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://newyorktitans.org";
+const PLAUSIBLE_DOMAIN = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN ?? "newyorktitans.org";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -40,8 +38,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "New York Titans",
     title: "New York Titans — Cricket. Character. Community.",
-    description:
-      "A nonprofit/community-first cricket organization in New York.",
+    description: "A nonprofit/community-first cricket organization in New York.",
     url: SITE_URL,
     locale: "en_US",
     images: [
@@ -69,10 +66,7 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: [
-      { url: "/favicon.ico" },
-      { url: "/icon.svg", type: "image/svg+xml" },
-    ],
+    icon: [{ url: "/favicon.ico" }, { url: "/icon.svg", type: "image/svg+xml" }],
     apple: "/apple-icon.png",
   },
   manifest: "/site.webmanifest",
@@ -91,11 +85,7 @@ export const viewport: Viewport = {
   maximumScale: 5,
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={fontVariables}>
       <body>
@@ -110,9 +100,11 @@ export default function RootLayout({
         </main>
 
         <Footer
-          socials={{
-            // Populated from content/site.json once available.
-          }}
+          socials={
+            {
+              // Populated from content/site.json once available.
+            }
+          }
         />
 
         {/* Plausible — privacy-first, cookie-free analytics.

@@ -39,10 +39,7 @@ for (const path of PUBLIC_ROUTES) {
       console.error(
         `axe violations on ${path}:\n` +
           results.violations
-            .map(
-              (v) =>
-                `  - [${v.id}] ${v.help} (${v.nodes.length} node(s))\n    ${v.helpUrl}`,
-            )
+            .map((v) => `  - [${v.id}] ${v.help} (${v.nodes.length} node(s))\n    ${v.helpUrl}`)
             .join("\n"),
       );
     }

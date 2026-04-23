@@ -70,8 +70,8 @@ export function Footer({
             <p className="font-display text-sub font-semibold">New York Titans</p>
             <RuleGold className="mt-3" />
             <p className="mt-4 max-w-prose text-body text-mist">
-              A nonprofit/community-first cricket organization in New York. Built for
-              talent, character, and community.
+              A nonprofit/community-first cricket organization in New York. Built for talent,
+              character, and community.
             </p>
           </div>
 

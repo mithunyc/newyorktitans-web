@@ -46,9 +46,7 @@ export default function TeamPage() {
                   <p className="mt-2 text-caption uppercase tracking-eyebrow text-gold">
                     {leader.title}
                   </p>
-                  {leader.bio && (
-                    <p className="mt-4 text-body text-mist">{leader.bio}</p>
-                  )}
+                  {leader.bio && <p className="mt-4 text-body text-mist">{leader.bio}</p>}
                 </div>
               ))}
             </div>
@@ -62,13 +60,8 @@ export default function TeamPage() {
             <Heading level={2}>Roster</Heading>
             <ul className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {team.roster.map((player) => (
-                <li
-                  key={player.name}
-                  className="rounded-lg border border-mist/10 bg-graphite p-8"
-                >
-                  <p className="text-caption uppercase tracking-eyebrow text-gold">
-                    {player.role}
-                  </p>
+                <li key={player.name} className="rounded-lg border border-mist/10 bg-graphite p-8">
+                  <p className="text-caption uppercase tracking-eyebrow text-gold">{player.role}</p>
                   <Heading level={3} size="sub" className="mt-2">
                     {player.name}
                   </Heading>
@@ -87,9 +80,7 @@ export default function TeamPage() {
       <Section surface="midnight" ariaLabel="Culture">
         <Container>
           <Heading level={2}>Our culture</Heading>
-          <p className="mt-6 max-w-prose text-bodyLg text-mist">
-            {team.cultureStatement}
-          </p>
+          <p className="mt-6 max-w-prose text-bodyLg text-mist">{team.cultureStatement}</p>
           <div className="mt-10">
             <Button href="/join" variant="primary" size="lg">
               Join Titans

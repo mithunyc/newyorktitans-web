@@ -32,9 +32,7 @@ export const CodeOfConductSchema = z.object({
   pdfDownload: z
     .object({
       label: z.string().min(1).max(60),
-      href: z
-        .string()
-        .regex(/^\/downloads\/.+\.pdf$/i, "PDF download must live under /downloads/"),
+      href: z.string().regex(/^\/downloads\/.+\.pdf$/i, "PDF download must live under /downloads/"),
     })
     .optional(),
 });

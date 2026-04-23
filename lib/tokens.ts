@@ -18,15 +18,15 @@
 
 export const colors = {
   // Foundation
-  midnight: "#0A1020",     // Titan Midnight — primary background
-  navy: "#111A33",         // Hudson Navy — secondary background, header
-  graphite: "#1A1F29",     // Graphite — card and surface
-  white: "#F7F4EE",        // City White — primary text on dark, light-section bg
-  mist: "#C8CEDA",         // Steel Mist — secondary text on dark, hairlines
+  midnight: "#0A1020", // Titan Midnight — primary background
+  navy: "#111A33", // Hudson Navy — secondary background, header
+  graphite: "#1A1F29", // Graphite — card and surface
+  white: "#F7F4EE", // City White — primary text on dark, light-section bg
+  mist: "#C8CEDA", // Steel Mist — secondary text on dark, hairlines
 
   // Accents
-  gold: "#D6A84F",         // Titan Gold — primary accent (CTAs, dividers)
-  blue: "#3E7BFA",         // Electric Field Blue — utility (focus, validation)
+  gold: "#D6A84F", // Titan Gold — primary accent (CTAs, dividers)
+  blue: "#3E7BFA", // Electric Field Blue — utility (focus, validation)
 } as const;
 
 export type ColorToken = keyof typeof colors;
@@ -37,18 +37,18 @@ export type ColorToken = keyof typeof colors;
 
 export const spacing = {
   "0": "0",
-  "1": "0.25rem",   // 4
-  "2": "0.5rem",    // 8
-  "3": "0.75rem",   // 12
-  "4": "1rem",      // 16
-  "6": "1.5rem",    // 24
-  "8": "2rem",      // 32
-  "12": "3rem",     // 48
-  "16": "4rem",     // 64
-  "24": "6rem",     // 96
-  "32": "8rem",     // 128
-  "36": "9rem",     // 144
-  "48": "12rem",    // 192
+  "1": "0.25rem", // 4
+  "2": "0.5rem", // 8
+  "3": "0.75rem", // 12
+  "4": "1rem", // 16
+  "6": "1.5rem", // 24
+  "8": "2rem", // 32
+  "12": "3rem", // 48
+  "16": "4rem", // 64
+  "24": "6rem", // 96
+  "32": "8rem", // 128
+  "36": "9rem", // 144
+  "48": "12rem", // 192
 } as const;
 
 // ---------------------------------------------------------------------------
@@ -94,8 +94,8 @@ export const letterSpacing = {
 export const radii = {
   none: "0",
   sm: "8px",
-  md: "12px",     // CTAs
-  lg: "16px",    // Cards
+  md: "12px", // CTAs
+  lg: "16px", // Cards
   full: "9999px",
 } as const;
 
@@ -154,9 +154,9 @@ export const breakpoints = {
 export const container = {
   maxWidth: "1200px",
   paddingX: {
-    base: spacing["6"],   // 24px mobile
-    md: spacing["8"],     // 32px tablet
-    lg: spacing["12"],    // 48px desktop
+    base: spacing["6"], // 24px mobile
+    md: spacing["8"], // 32px tablet
+    lg: spacing["12"], // 48px desktop
   },
 } as const;
 
@@ -166,12 +166,12 @@ export const container = {
 
 export const section = {
   padY: {
-    base: spacing["24"],  // 96 mobile
-    md: spacing["36"],    // 144 desktop
+    base: spacing["24"], // 96 mobile
+    md: spacing["36"], // 144 desktop
   },
   heroPadY: {
-    base: spacing["32"],  // 128 mobile
-    md: spacing["48"],    // 192 desktop
+    base: spacing["32"], // 128 mobile
+    md: spacing["48"], // 192 desktop
   },
 } as const;
 

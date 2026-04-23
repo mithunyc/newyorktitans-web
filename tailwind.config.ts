@@ -21,11 +21,7 @@ import {
 } from "./lib/tokens";
 
 const config: Config = {
-  content: [
-    "./app/**/*.{ts,tsx,mdx}",
-    "./components/**/*.{ts,tsx}",
-    "./content/**/*.{mdx,md}",
-  ],
+  content: ["./app/**/*.{ts,tsx,mdx}", "./components/**/*.{ts,tsx}", "./content/**/*.{mdx,md}"],
   // Force dark foundation as the default; light is opt-in per section.
   darkMode: "class",
   theme: {

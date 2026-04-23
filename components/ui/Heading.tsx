@@ -32,14 +32,7 @@ const sizeClasses: Record<Size, string> = {
   sub: "text-sub font-sans font-medium leading-heading",
 };
 
-export function Heading({
-  level,
-  size,
-  children,
-  className,
-  id,
-  balance = true,
-}: HeadingProps) {
+export function Heading({ level, size, children, className, id, balance = true }: HeadingProps) {
   // Default size mirrors level when not specified.
   const resolvedSize: Size =
     size ?? (level === 1 ? "hero" : level === 2 ? "h2" : level === 3 ? "h3" : "sub");
@@ -49,11 +42,7 @@ export function Heading({
   return (
     <Tag
       id={id}
-      className={cn(
-        sizeClasses[resolvedSize],
-        balance && "[text-wrap:balance]",
-        className,
-      )}
+      className={cn(sizeClasses[resolvedSize], balance && "[text-wrap:balance]", className)}
     >
       {children}
     </Tag>

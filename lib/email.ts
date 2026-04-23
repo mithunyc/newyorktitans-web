@@ -30,10 +30,8 @@ function requireEnv(name: string): string {
 const RESEND_API_KEY = requireEnv("RESEND_API_KEY");
 const NOREPLY_SENDER =
   process.env.NOREPLY_SENDER ?? "New York Titans <noreply@mail.newyorktitans.org>";
-const INQUIRIES_INBOX =
-  process.env.INQUIRIES_INBOX ?? "inquiries@newyorktitans.org";
-const PARTNERSHIPS_INBOX =
-  process.env.PARTNERSHIPS_INBOX ?? "partnerships@newyorktitans.org";
+const INQUIRIES_INBOX = process.env.INQUIRIES_INBOX ?? "inquiries@newyorktitans.org";
+const PARTNERSHIPS_INBOX = process.env.PARTNERSHIPS_INBOX ?? "partnerships@newyorktitans.org";
 
 // Lazy-init so envs are read once per process, not per request.
 let _resend: Resend | null = null;
@@ -64,9 +62,7 @@ export type GeneralInterestPayload = {
   phone?: string;
 };
 
-export type SendResult =
-  | { ok: true }
-  | { ok: false; reason: "send_failed"; details?: string };
+export type SendResult = { ok: true } | { ok: false; reason: "send_failed"; details?: string };
 
 // ---------------------------------------------------------------------------
 // Plain-text + HTML helpers
@@ -156,9 +152,7 @@ function sponsorAutoresponder(p: SponsorInquiryPayload) {
   return { text, html };
 }
 
-export async function sendSponsorInquiry(
-  payload: SponsorInquiryPayload,
-): Promise<SendResult> {
+export async function sendSponsorInquiry(payload: SponsorInquiryPayload): Promise<SendResult> {
   const inquiry = sponsorInquiryEmail(payload);
   const auto = sponsorAutoresponder(payload);
 
@@ -253,9 +247,7 @@ function generalAutoresponder(p: GeneralInterestPayload) {
   return { text, html };
 }
 
-export async function sendGeneralInterest(
-  payload: GeneralInterestPayload,
-): Promise<SendResult> {
+export async function sendGeneralInterest(payload: GeneralInterestPayload): Promise<SendResult> {
   const inquiry = generalInquiryEmail(payload);
   const auto = generalAutoresponder(payload);
 

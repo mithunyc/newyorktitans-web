@@ -24,13 +24,7 @@ type ThankYouProps = {
   nextStep: string;
 };
 
-export function ThankYou({
-  eyebrow,
-  headline,
-  body,
-  fallbackEmail,
-  nextStep,
-}: ThankYouProps) {
+export function ThankYou({ eyebrow, headline, body, fallbackEmail, nextStep }: ThankYouProps) {
   return (
     <Section variant="hero" surface="midnight" ariaLabel="Message received">
       <Container>
@@ -46,13 +40,11 @@ export function ThankYou({
           <RuleGold className="mt-12" />
 
           <p className="mt-8 text-body text-mist">
-            <strong className="font-medium text-white">Next step:</strong>{" "}
-            {nextStep}
+            <strong className="font-medium text-white">Next step:</strong> {nextStep}
           </p>
 
           <p className="mt-4 text-body text-mist">
-            If you don't hear from us within 3 business days, email us directly
-            at{" "}
+            If you don't hear from us within 3 business days, email us directly at{" "}
             <a
               href={`mailto:${fallbackEmail}`}
               className="text-white underline decoration-gold decoration-2 underline-offset-4 hover:decoration-white"

@@ -1,15 +1,18 @@
 # IMAGE_BRIEF.md
 
 ## Purpose
+
 This document defines what counts as acceptable imagery for the New York Titans website.
 
 The goal is not just to fill space.
 The goal is to support trust, credibility, and emotional truth.
 
 ## Core principle
+
 A community cricket club must look **real**.
 
 The strongest imagery for this project is:
+
 - authentic
 - human
 - grounded
@@ -18,6 +21,7 @@ The strongest imagery for this project is:
 - disciplined
 
 The weakest imagery is:
+
 - generic
 - over-edited
 - corporate
@@ -26,10 +30,13 @@ The weakest imagery is:
 - AI-generated
 
 ## Image priorities
+
 Choose images in this order:
 
 ### 1. Real Titans people
+
 Examples:
+
 - players in action
 - team huddle
 - coach speaking to players
@@ -38,7 +45,9 @@ Examples:
 - team group with personality and pride
 
 ### 2. Real community moments
+
 Examples:
+
 - youth participation
 - family presence
 - mentoring moments
@@ -46,20 +55,25 @@ Examples:
 - club gatherings
 
 ### 3. Real New York context
+
 Only if authentic and useful.
 Examples:
+
 - actual local ground environment
 - neighborhood context tied to real Titans activity
 
 ## Minimum launch gate
+
 Before public launch, the site must contain at least **3 authentic Titans photos**.
 
 Recommended distribution:
+
 - Home hero
 - Team page
 - About or Sponsors page
 
 ## What a strong image looks like
+
 - real people from the club
 - clear subject
 - good natural or warm artificial light
@@ -70,7 +84,9 @@ Recommended distribution:
 - feels like sport, effort, community, or leadership
 
 ## What to avoid
+
 ### Never use
+
 - AI-generated people
 - stock skyline photos as filler
 - generic sports stock that is not Titans
@@ -81,13 +97,16 @@ Recommended distribution:
 - dark muddy photos that lose detail on mobile
 
 ### Avoid unless there is no better option
+
 - empty field photos with no people
 - posed handshake photos with no real energy
 - photos with distracting backgrounds
 - tiny low-resolution WhatsApp forwards
 
 ## Art direction
+
 Preferred tone:
+
 - warm
 - grounded
 - cinematic without being staged
@@ -95,6 +114,7 @@ Preferred tone:
 - human, not corporate
 
 Preferred subjects:
+
 - action
 - attention
 - discipline
@@ -103,17 +123,22 @@ Preferred subjects:
 - support
 
 ## Cropping guidance
+
 ### Home hero
+
 Needs a strong focal point and room for responsive cropping.
 Avoid putting key faces at the extreme edges.
 
 ### Team page
+
 Faces and posture matter more than background.
 
 ### Sponsors/About
+
 Use images that imply legitimacy and real community connection.
 
 ## Technical guidance
+
 - keep originals when possible
 - export web versions at reasonable size
 - prefer JPG or WebP for photos
@@ -121,12 +146,15 @@ Use images that imply legitimacy and real community connection.
 - file names should be descriptive and clean
 
 Examples:
+
 - `home-hero-team-walkout.jpg`
 - `team-training-coach-talk.jpg`
 - `about-community-family-day.jpg`
 
 ## Selection rule
+
 When choosing between two images:
+
 - choose the one that feels more real
 - choose the one with clearer human presence
 - choose the one that supports trust faster
@@ -134,7 +162,9 @@ When choosing between two images:
 Do not choose an image just because it looks “fancy.”
 
 ## Final filter
+
 Before approving an image, ask:
+
 1. Is this really Titans?
 2. Does this increase trust?
 3. Would a sponsor or parent find this believable?

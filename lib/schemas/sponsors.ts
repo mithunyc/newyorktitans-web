@@ -14,28 +14,25 @@ const Theme = z.object({
   name: z
     .string()
     .min(1)
-    .refine(
-      (n) => !/^(bronze|silver|gold|platinum)$/i.test(n),
-      {
-        message:
-          "Themed tiers only (Founding, Community, Youth Development, Team Support). Bronze/Silver/Gold/Platinum are rejected.",
-      },
-    ),
+    .refine((n) => !/^(bronze|silver|gold|platinum)$/i.test(n), {
+      message:
+        "Themed tiers only (Founding, Community, Youth Development, Team Support). Bronze/Silver/Gold/Platinum are rejected.",
+    }),
   description: z.string().min(1).max(400),
 });
 
 const Supporter = z.object({
   name: z.string().min(1).max(80),
   // Logo path is repo-relative under /public, e.g. "/images/sponsors/acme.svg".
-  logo: z.string().regex(
-    /^\/images\/sponsors\/[a-z0-9._-]+\.(svg|png|webp|jpg|jpeg)$/i,
-    "Logo path must look like /images/sponsors/<file>.<ext>",
-  ),
+  logo: z
+    .string()
+    .regex(
+      /^\/images\/sponsors\/[a-z0-9._-]+\.(svg|png|webp|jpg|jpeg)$/i,
+      "Logo path must look like /images/sponsors/<file>.<ext>",
+    ),
   url: z.string().url().optional(),
   // Tier is optional; if provided, must be one of the four themes.
-  tier: z
-    .enum(["Founding", "Community", "Youth Development", "Team Support"])
-    .optional(),
+  tier: z.enum(["Founding", "Community", "Youth Development", "Team Support"]).optional(),
 });
 
 export const SponsorsSchema = z.object({

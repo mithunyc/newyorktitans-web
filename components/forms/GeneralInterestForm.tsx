@@ -18,10 +18,7 @@ import { submitGeneralInterest } from "@/app/actions/general-interest";
 import { Input, Textarea, Select, Honeypot, FormError } from "./FormField";
 import { Button } from "@/components/ui/Button";
 
-type Status =
-  | { kind: "idle" }
-  | { kind: "submitting" }
-  | { kind: "error"; message: string };
+type Status = { kind: "idle" } | { kind: "submitting" } | { kind: "error"; message: string };
 
 const CATEGORY_OPTIONS = [
   { value: "Player", label: "Player" },
@@ -91,11 +88,7 @@ export function GeneralInterestForm({
   const submitting = pending || status.kind === "submitting";
 
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      className="relative flex flex-col gap-6"
-      noValidate
-    >
+    <form onSubmit={handleSubmit(onSubmit)} className="relative flex flex-col gap-6" noValidate>
       <Honeypot />
 
       {status.kind === "error" && <FormError>{status.message}</FormError>}
@@ -148,9 +141,7 @@ export function GeneralInterestForm({
         <Button type="submit" variant="primary" size="lg" disabled={submitting}>
           {submitting ? "Sending…" : "Send message"}
         </Button>
-        <p className="text-caption text-mist">
-          We respond within 3 business days.
-        </p>
+        <p className="text-caption text-mist">We respond within 3 business days.</p>
       </div>
     </form>
   );

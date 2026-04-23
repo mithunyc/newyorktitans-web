@@ -28,11 +28,11 @@ export function Header() {
       className="sticky top-0 z-30 border-b border-mist/10 bg-navy/90 backdrop-blur supports-[backdrop-filter]:bg-navy/75"
     >
       <Container>
-        <div className="flex h-16 items-center justify-between gap-6 md:h-20">
+        <div className="md:h-20 flex h-16 items-center justify-between gap-6">
           {/* Wordmark — replace with logo SVG once approved (D-032). */}
           <Link
             href="/"
-            className="font-display text-bodyLg font-semibold tracking-heading text-white hover:text-gold focus-visible:outline-none focus-visible:ring-ring focus-visible:ring-blue focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
+            className="focus-visible:ring-ring font-display text-bodyLg font-semibold tracking-heading text-white hover:text-gold focus-visible:outline-none focus-visible:ring-blue focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
             aria-label="New York Titans — home"
           >
             New York Titans
@@ -44,7 +44,7 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-body text-mist transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-ring focus-visible:ring-blue focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
+                className="focus-visible:ring-ring text-body text-mist transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-blue focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
               >
                 {item.label}
               </Link>

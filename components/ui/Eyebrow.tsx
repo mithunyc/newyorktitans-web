@@ -24,7 +24,7 @@ export function Eyebrow({ children, tone = "mist", className }: EyebrowProps) {
   return (
     <p
       className={cn(
-        "text-micro font-sans font-medium uppercase tracking-eyebrow",
+        "font-sans text-micro font-medium uppercase tracking-eyebrow",
         toneClasses[tone],
         className,
       )}

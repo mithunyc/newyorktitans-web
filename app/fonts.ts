@@ -16,8 +16,6 @@ export const fraunces = Fraunces({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-fraunces",
-  weight: ["500", "600", "700"],
-  style: ["normal"],
   // Optical-size axis improves headline presence at large sizes.
   axes: ["opsz", "SOFT"],
 });

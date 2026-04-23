@@ -39,9 +39,7 @@ export default async function CodeOfConductPage() {
           <Heading level={1} className="mt-6 max-w-[22ch]">
             {conduct.hero.headline}
           </Heading>
-          <p className="mt-8 max-w-prose text-bodyLg text-mist">
-            {conduct.hero.sub}
-          </p>
+          <p className="mt-8 max-w-prose text-bodyLg text-mist">{conduct.hero.sub}</p>
         </Container>
       </Section>
 
@@ -53,7 +51,7 @@ export default async function CodeOfConductPage() {
             {conduct.values.map((v) => (
               <li
                 key={v}
-                className="rounded-full border border-gold/40 px-5 py-2 text-body text-white"
+                className="px-5 rounded-full border border-gold/40 py-2 text-body text-white"
               >
                 {v}
               </li>
@@ -72,12 +70,7 @@ export default async function CodeOfConductPage() {
           {/* PDF download if configured */}
           {conduct.pdfDownload && (
             <div className="mt-10">
-              <Button
-                href={conduct.pdfDownload.href}
-                variant="secondary"
-                size="md"
-                external
-              >
+              <Button href={conduct.pdfDownload.href} variant="secondary" size="md" external>
                 {conduct.pdfDownload.label}
               </Button>
             </div>

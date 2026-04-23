@@ -25,9 +25,7 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-  const socialEntries = Object.entries(site.socials).filter(
-    ([, v]) => v && v.length > 0,
-  );
+  const socialEntries = Object.entries(site.socials).filter(([, v]) => v && v.length > 0);
 
   return (
     <>
@@ -38,8 +36,8 @@ export default function ContactPage() {
             Get in touch.
           </Heading>
           <p className="mt-8 max-w-prose text-bodyLg text-mist">
-            We read every message and respond within 3 business days. For
-            partnership enquiries, visit our{" "}
+            We read every message and respond within 3 business days. For partnership enquiries,
+            visit our{" "}
             <a
               href="/sponsors"
               className="text-white underline decoration-gold decoration-2 underline-offset-4 hover:decoration-white"
@@ -55,11 +53,9 @@ export default function ContactPage() {
         <Container>
           <div className="grid gap-16 md:grid-cols-[1fr_1.4fr]">
             {/* Direct contact details */}
-            <div className="flex flex-col gap-10">
+            <div className="gap-10 flex flex-col">
               <div>
-                <p className="text-micro uppercase tracking-eyebrow text-gold">
-                  General enquiries
-                </p>
+                <p className="text-micro uppercase tracking-eyebrow text-gold">General enquiries</p>
                 <a
                   href={`mailto:${site.contactEmail}`}
                   className="mt-3 block text-bodyLg text-white hover:text-gold"
@@ -69,9 +65,7 @@ export default function ContactPage() {
               </div>
 
               <div>
-                <p className="text-micro uppercase tracking-eyebrow text-gold">
-                  Partnerships
-                </p>
+                <p className="text-micro uppercase tracking-eyebrow text-gold">Partnerships</p>
                 <a
                   href={`mailto:${site.partnershipsEmail}`}
                   className="mt-3 block text-bodyLg text-white hover:text-gold"
@@ -82,9 +76,7 @@ export default function ContactPage() {
 
               {socialEntries.length > 0 && (
                 <div>
-                  <p className="text-micro uppercase tracking-eyebrow text-gold">
-                    Follow us
-                  </p>
+                  <p className="text-micro uppercase tracking-eyebrow text-gold">Follow us</p>
                   <ul className="mt-3 flex flex-col gap-2">
                     {socialEntries.map(([name, url]) => (
                       <li key={name}>
@@ -105,10 +97,7 @@ export default function ContactPage() {
 
             {/* Form */}
             <div>
-              <GeneralInterestForm
-                defaultCategory="General"
-                successPath="/contact/thanks"
-              />
+              <GeneralInterestForm defaultCategory="General" successPath="/contact/thanks" />
             </div>
           </div>
         </Container>

@@ -43,9 +43,8 @@ export default function JoinPage() {
             Find your place in the club.
           </Heading>
           <p className="mt-8 max-w-prose text-bodyLg text-mist">
-            Titans is built around standards: skill, character, discipline,
-            community. If those words mean something to you, there's a place
-            here.
+            Titans is built around standards: skill, character, discipline, community. If those
+            words mean something to you, there's a place here.
           </p>
         </Container>
       </Section>
@@ -75,8 +74,7 @@ export default function JoinPage() {
                 Tell us about you.
               </Heading>
               <p className="mt-6 max-w-prose text-body text-mist">
-                We'll respond within 3 business days. By submitting, you agree to
-                follow our written{" "}
+                We'll respond within 3 business days. By submitting, you agree to follow our written{" "}
                 <a
                   href="/code-of-conduct"
                   className="text-white underline decoration-gold decoration-2 underline-offset-4 hover:decoration-white"
@@ -87,10 +85,7 @@ export default function JoinPage() {
               </p>
             </div>
             <div>
-              <GeneralInterestForm
-                defaultCategory="Player"
-                successPath="/join/thanks"
-              />
+              <GeneralInterestForm defaultCategory="Player" successPath="/join/thanks" />
             </div>
           </div>
         </Container>

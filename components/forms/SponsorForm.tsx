@@ -16,10 +16,7 @@ import { submitSponsorInquiry } from "@/app/actions/sponsor-inquiry";
 import { Input, Textarea, Honeypot, FormError } from "./FormField";
 import { Button } from "@/components/ui/Button";
 
-type Status =
-  | { kind: "idle" }
-  | { kind: "submitting" }
-  | { kind: "error"; message: string };
+type Status = { kind: "idle" } | { kind: "submitting" } | { kind: "error"; message: string };
 
 export function SponsorForm() {
   const router = useRouter();
@@ -78,11 +75,7 @@ export function SponsorForm() {
   const submitting = pending || status.kind === "submitting";
 
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      className="relative flex flex-col gap-6"
-      noValidate
-    >
+    <form onSubmit={handleSubmit(onSubmit)} className="relative flex flex-col gap-6" noValidate>
       <Honeypot />
 
       {status.kind === "error" && <FormError>{status.message}</FormError>}
@@ -136,9 +129,7 @@ export function SponsorForm() {
         <Button type="submit" variant="primary" size="lg" disabled={submitting}>
           {submitting ? "Sending…" : "Send inquiry"}
         </Button>
-        <p className="text-caption text-mist">
-          We respond within 3 business days.
-        </p>
+        <p className="text-caption text-mist">We respond within 3 business days.</p>
       </div>
     </form>
   );

@@ -39,18 +39,18 @@ describe("design tokens match the reconciled pack DESIGN.md", () => {
   describe("spacing scale (Section 11.4)", () => {
     it("uses the documented px ladder", () => {
       // Scale: 4, 8, 12, 16, 24, 32, 48, 64, 96, 128 (+ 144, 192 for sections)
-      expect(spacing["1"]).toBe("0.25rem");   // 4
-      expect(spacing["2"]).toBe("0.5rem");    // 8
-      expect(spacing["3"]).toBe("0.75rem");   // 12
-      expect(spacing["4"]).toBe("1rem");      // 16
-      expect(spacing["6"]).toBe("1.5rem");    // 24
-      expect(spacing["8"]).toBe("2rem");      // 32
-      expect(spacing["12"]).toBe("3rem");     // 48
-      expect(spacing["16"]).toBe("4rem");     // 64
-      expect(spacing["24"]).toBe("6rem");     // 96
-      expect(spacing["32"]).toBe("8rem");     // 128
-      expect(spacing["36"]).toBe("9rem");     // 144
-      expect(spacing["48"]).toBe("12rem");    // 192
+      expect(spacing["1"]).toBe("0.25rem"); // 4
+      expect(spacing["2"]).toBe("0.5rem"); // 8
+      expect(spacing["3"]).toBe("0.75rem"); // 12
+      expect(spacing["4"]).toBe("1rem"); // 16
+      expect(spacing["6"]).toBe("1.5rem"); // 24
+      expect(spacing["8"]).toBe("2rem"); // 32
+      expect(spacing["12"]).toBe("3rem"); // 48
+      expect(spacing["16"]).toBe("4rem"); // 64
+      expect(spacing["24"]).toBe("6rem"); // 96
+      expect(spacing["32"]).toBe("8rem"); // 128
+      expect(spacing["36"]).toBe("9rem"); // 144
+      expect(spacing["48"]).toBe("12rem"); // 192
     });
   });
 
@@ -64,8 +64,7 @@ describe("design tokens match the reconciled pack DESIGN.md", () => {
     it("caption is 0.875rem", () => expect(fontSize.caption).toBe("0.875rem"));
 
     it("hero tracking is -0.02em", () => expect(letterSpacing.hero).toBe("-0.02em"));
-    it("heading tracking is -0.015em", () =>
-      expect(letterSpacing.heading).toBe("-0.015em"));
+    it("heading tracking is -0.015em", () => expect(letterSpacing.heading).toBe("-0.015em"));
 
     it("hero leading is 0.95", () => expect(lineHeight.hero).toBe("0.95"));
     it("body leading is 1.6", () => expect(lineHeight.body).toBe("1.6"));

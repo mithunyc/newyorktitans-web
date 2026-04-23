@@ -218,9 +218,7 @@ const INVARIANTS: InvariantCheck[] = [
       ["partnershipsEmail", data.partnershipsEmail],
     ] as const) {
       if (value && !value.endsWith(`@${expected}`)) {
-        errs.push(
-          `content/site.json → ${field}: must end with @${expected} (got "${value}")`,
-        );
+        errs.push(`content/site.json → ${field}: must end with @${expected} (got "${value}")`);
       }
     }
     return errs;
@@ -301,9 +299,7 @@ function main(): void {
   }
 
   // eslint-disable-next-line no-console
-  console.log(
-    "\n" + color("green", color("bold", "All content valid. ✓")) + "\n",
-  );
+  console.log("\n" + color("green", color("bold", "All content valid. ✓")) + "\n");
   process.exit(0);
 }
 

@@ -68,7 +68,7 @@ export function MobileDrawer({
         aria-expanded={open}
         aria-controls="mobile-drawer"
         onClick={() => setOpen(true)}
-        className="inline-flex items-center justify-center rounded-md p-2 text-white md:hidden focus-visible:outline-none focus-visible:ring-ring focus-visible:ring-blue focus-visible:ring-offset-2 focus-visible:ring-offset-midnight"
+        className="focus-visible:ring-ring inline-flex items-center justify-center rounded-md p-2 text-white focus-visible:outline-none focus-visible:ring-blue focus-visible:ring-offset-2 focus-visible:ring-offset-midnight md:hidden"
       >
         <MenuIcon size={28} weight="regular" />
       </button>
@@ -108,7 +108,7 @@ export function MobileDrawer({
                   type="button"
                   aria-label="Close menu"
                   onClick={() => setOpen(false)}
-                  className="inline-flex items-center justify-center rounded-md p-2 text-white focus-visible:outline-none focus-visible:ring-ring focus-visible:ring-blue focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
+                  className="focus-visible:ring-ring inline-flex items-center justify-center rounded-md p-2 text-white focus-visible:outline-none focus-visible:ring-blue focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
                 >
                   <CloseIcon size={24} weight="regular" />
                 </button>
@@ -120,18 +120,13 @@ export function MobileDrawer({
                     key={item.href}
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className="rounded-md py-3 font-display text-h3 text-white hover:text-gold focus-visible:outline-none focus-visible:ring-ring focus-visible:ring-blue"
+                    className="focus-visible:ring-ring rounded-md py-3 font-display text-h3 text-white hover:text-gold focus-visible:outline-none focus-visible:ring-blue"
                   >
                     {item.label}
                   </Link>
                 ))}
                 <div className="mt-8">
-                  <Button
-                    href={sponsorHref}
-                    variant="primary"
-                    size="lg"
-                    className="w-full"
-                  >
+                  <Button href={sponsorHref} variant="primary" size="lg" className="w-full">
                     {sponsorLabel}
                   </Button>
                 </div>

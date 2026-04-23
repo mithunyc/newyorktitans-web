@@ -33,14 +33,7 @@ export function Image(props: ImageProps) {
   const { className, decorative, alt, ...rest } = props;
 
   if (decorative) {
-    return (
-      <NextImage
-        {...rest}
-        alt=""
-        aria-hidden="true"
-        className={cn(className)}
-      />
-    );
+    return <NextImage {...rest} alt="" aria-hidden="true" className={cn(className)} />;
   }
 
   if (!alt || alt.trim().length === 0) {
@@ -48,7 +41,7 @@ export function Image(props: ImageProps) {
     if (process.env.NODE_ENV !== "production") {
       throw new Error(
         "Image: informative images require non-empty alt text. " +
-          "If the image is decorative, pass alt=\"\" AND decorative={true}.",
+          'If the image is decorative, pass alt="" AND decorative={true}.',
       );
     }
   }

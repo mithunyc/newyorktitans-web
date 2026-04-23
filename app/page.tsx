@@ -45,8 +45,8 @@ export default function HomePage() {
             Built in New York. Driven by purpose.
           </Heading>
           <p className="mt-8 max-w-prose text-bodyLg text-mist">
-            We are building more than a cricket team. A home for talent, character,
-            leadership, and belonging through the game we love.
+            We are building more than a cricket team. A home for talent, character, leadership, and
+            belonging through the game we love.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <Button href="/sponsors" variant="primary" size="lg">
@@ -110,9 +110,8 @@ export default function HomePage() {
                 Partner with a club building real impact.
               </Heading>
               <p className="mt-6 max-w-prose text-bodyLg text-mist">
-                Sponsoring Titans is more than logo placement. It is an opportunity
-                to support youth development, leadership, and a growing cricket
-                culture in New York.
+                Sponsoring Titans is more than logo placement. It is an opportunity to support youth
+                development, leadership, and a growing cricket culture in New York.
               </p>
             </div>
             <div className="flex md:justify-end">
@@ -134,10 +133,9 @@ export default function HomePage() {
                 Building something bigger than match day.
               </Heading>
               <p className="mt-6 max-w-prose text-body text-mist">
-                Cricket can develop skill, confidence, character, and community.
-                That is why Titans is not just about competition. It is about
-                creating a standard, building pride, and giving players and
-                families a place where they feel they belong.
+                Cricket can develop skill, confidence, character, and community. That is why Titans
+                is not just about competition. It is about creating a standard, building pride, and
+                giving players and families a place where they feel they belong.
               </p>
             </div>
             <div className="aspect-[4/5] rounded-lg bg-graphite" aria-hidden="true">
@@ -154,9 +152,8 @@ export default function HomePage() {
             <div>
               <Heading level={3}>Join Titans</Heading>
               <p className="mt-4 max-w-prose text-body text-mist">
-                Whether you are a player, coach, volunteer, or supporter, there
-                is a place for people who believe in discipline, growth, and
-                community.
+                Whether you are a player, coach, volunteer, or supporter, there is a place for
+                people who believe in discipline, growth, and community.
               </p>
               <div className="mt-8">
                 <Button href="/join" variant="secondary" size="md">

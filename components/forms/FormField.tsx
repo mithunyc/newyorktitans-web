@@ -74,11 +74,7 @@ export function Field({
       {children({ id, describedBy, invalid: !!error })}
 
       {error && (
-        <p
-          id={errorId}
-          role="alert"
-          className="text-caption text-blue"
-        >
+        <p id={errorId} role="alert" className="text-caption text-blue">
           {error}
         </p>
       )}
@@ -90,7 +86,10 @@ export function Field({
 // Input
 // ---------------------------------------------------------------------------
 
-type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, "id" | "aria-describedby" | "aria-invalid"> & {
+type InputProps = Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  "id" | "aria-describedby" | "aria-invalid"
+> & {
   label: string;
   helper?: string;
   error?: string;
@@ -188,7 +187,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(function Select
           aria-describedby={describedBy}
           aria-invalid={invalid || undefined}
           required={required}
-          className={cn(baseField, "appearance-none pr-10", className)}
+          className={cn(baseField, "pr-10 appearance-none", className)}
           {...rest}
         >
           {options.map((o) => (
@@ -209,7 +208,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(function Select
 
 export function Honeypot({ name = "website" }: { name?: string }) {
   return (
-    <div aria-hidden="true" className="absolute left-[-10000px] top-auto h-px w-px overflow-hidden">
+    <div aria-hidden="true" className="h-px w-px absolute left-[-10000px] top-auto overflow-hidden">
       <label htmlFor={`hp-${name}`}>Leave this field empty</label>
       <input
         id={`hp-${name}`}

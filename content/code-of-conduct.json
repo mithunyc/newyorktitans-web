@@ -31,12 +31,5 @@
       "oneLiner": "How we represent the club online — with respect, accuracy, and integrity."
     }
   ],
-  "values": [
-    "Integrity",
-    "Respect",
-    "Teamwork",
-    "Discipline",
-    "Community",
-    "Enjoyment"
-  ]
+  "values": ["Integrity", "Respect", "Teamwork", "Discipline", "Community", "Enjoyment"]
 }

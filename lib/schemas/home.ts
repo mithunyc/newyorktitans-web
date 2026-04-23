@@ -12,20 +12,21 @@ const Cta = z.object({
   href: z.string().min(1),
 });
 
-const Hero = z.object({
-  // Allow type-forward fallback for one hero (D-028).
-  mode: z.enum(["image", "type"]).default("image"),
-  eyebrow: z.string().min(1).max(60),
-  headline: z.string().min(1).max(120),
-  sub: z.string().min(1).max(280),
-  primary: Cta,
-  secondary: Cta.optional(),
-  image: z.string().optional(),
-  imageAlt: z.string().optional(),
-}).refine(
-  (h) => h.mode !== "image" || (h.image !== undefined && h.imageAlt !== undefined),
-  { message: "When hero.mode is 'image', both image and imageAlt are required." },
-);
+const Hero = z
+  .object({
+    // Allow type-forward fallback for one hero (D-028).
+    mode: z.enum(["image", "type"]).default("image"),
+    eyebrow: z.string().min(1).max(60),
+    headline: z.string().min(1).max(120),
+    sub: z.string().min(1).max(280),
+    primary: Cta,
+    secondary: Cta.optional(),
+    image: z.string().optional(),
+    imageAlt: z.string().optional(),
+  })
+  .refine((h) => h.mode !== "image" || (h.image !== undefined && h.imageAlt !== undefined), {
+    message: "When hero.mode is 'image', both image and imageAlt are required.",
+  });
 
 const Pillar = z.object({
   title: z.string().min(1).max(40),

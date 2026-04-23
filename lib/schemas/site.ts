@@ -16,9 +16,7 @@ export const SiteSchema = z.object({
   url: z.string().url("url must be a valid URL"),
 
   contactEmail: z.string().email("contactEmail must be a valid email"),
-  partnershipsEmail: z
-    .string()
-    .email("partnershipsEmail must be a valid email"),
+  partnershipsEmail: z.string().email("partnershipsEmail must be a valid email"),
 
   socials: z.object({
     instagram: UrlOrEmpty,

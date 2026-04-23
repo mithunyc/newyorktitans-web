@@ -48,3 +48,6 @@ next-env.d.ts
 # Generated
 /public/sitemap.xml
 /public/robots.txt
+
+.vercel
+.env*.local

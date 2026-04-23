@@ -31,18 +31,14 @@ export default function SponsorsPage() {
           <Heading level={1} className="mt-6 max-w-[20ch]">
             {sponsors.hero.headline}
           </Heading>
-          <p className="mt-8 max-w-prose text-bodyLg text-mist">
-            {sponsors.hero.sub}
-          </p>
+          <p className="mt-8 max-w-prose text-bodyLg text-mist">{sponsors.hero.sub}</p>
         </Container>
       </Section>
 
       <Section surface="navy" ariaLabel="Why partner">
         <Container>
           <Heading level={2}>Why partner with Titans</Heading>
-          <p className="mt-6 max-w-prose text-bodyLg text-mist">
-            {sponsors.whyPartner}
-          </p>
+          <p className="mt-6 max-w-prose text-bodyLg text-mist">{sponsors.whyPartner}</p>
         </Container>
       </Section>
 
@@ -54,10 +50,7 @@ export default function SponsorsPage() {
           </Heading>
           <div className="mt-12 grid gap-8 md:grid-cols-2">
             {sponsors.themes.map((theme) => (
-              <div
-                key={theme.name}
-                className="rounded-lg border border-mist/10 bg-graphite p-8"
-              >
+              <div key={theme.name} className="rounded-lg border border-mist/10 bg-graphite p-8">
                 <Heading level={3} size="sub">
                   {theme.name}
                 </Heading>
@@ -95,8 +88,8 @@ export default function SponsorsPage() {
                 Start a conversation.
               </Heading>
               <p className="mt-6 max-w-prose text-body text-mist">
-                Tell us a little about your organization and what you have in
-                mind. We respond within 3 business days.
+                Tell us a little about your organization and what you have in mind. We respond
+                within 3 business days.
               </p>
             </div>
             <div>

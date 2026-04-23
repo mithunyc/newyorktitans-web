@@ -21,10 +21,5 @@ const widths = {
 };
 
 export function RuleGold({ className, width = "md" }: RuleGoldProps) {
-  return (
-    <span
-      aria-hidden="true"
-      className={cn("block h-px bg-gold", widths[width], className)}
-    />
-  );
+  return <span aria-hidden="true" className={cn("h-px block bg-gold", widths[width], className)} />;
 }

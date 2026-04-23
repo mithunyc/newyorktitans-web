@@ -10,12 +10,7 @@
 
 import { z } from "zod";
 
-const PlayerRole = z.enum([
-  "Batter",
-  "Bowler",
-  "All-Rounder",
-  "Wicketkeeper",
-]);
+const PlayerRole = z.enum(["Batter", "Bowler", "All-Rounder", "Wicketkeeper"]);
 
 const Player = z
   .object({
@@ -31,21 +26,14 @@ const Player = z
     isMinor: z.boolean().optional(),
     consentRecorded: z.boolean().optional(),
   })
-  .refine(
-    (p) => !p.isMinor || p.consentRecorded === true,
-    {
-      message:
-        "Minors require consentRecorded=true before being published. See operations.md.",
-      path: ["consentRecorded"],
-    },
-  )
-  .refine(
-    (p) => !p.image || !!p.imageAlt,
-    {
-      message: "When image is provided, imageAlt is required.",
-      path: ["imageAlt"],
-    },
-  );
+  .refine((p) => !p.isMinor || p.consentRecorded === true, {
+    message: "Minors require consentRecorded=true before being published. See operations.md.",
+    path: ["consentRecorded"],
+  })
+  .refine((p) => !p.image || !!p.imageAlt, {
+    message: "When image is provided, imageAlt is required.",
+    path: ["imageAlt"],
+  });
 
 const Leader = z.object({
   name: z.string().min(1).max(80),

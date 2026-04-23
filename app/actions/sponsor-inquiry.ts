@@ -25,9 +25,7 @@ export type SponsorInquiryActionResult =
       message?: string;
     };
 
-export async function submitSponsorInquiry(
-  raw: unknown,
-): Promise<SponsorInquiryActionResult> {
+export async function submitSponsorInquiry(raw: unknown): Promise<SponsorInquiryActionResult> {
   // Step 1: server-side re-validation. NEVER trust client validation.
   const parsed = SponsorInquirySchema.safeParse(raw);
   if (!parsed.success) {

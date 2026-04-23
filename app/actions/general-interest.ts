@@ -24,9 +24,7 @@ export type GeneralInterestActionResult =
       message?: string;
     };
 
-export async function submitGeneralInterest(
-  raw: unknown,
-): Promise<GeneralInterestActionResult> {
+export async function submitGeneralInterest(raw: unknown): Promise<GeneralInterestActionResult> {
   const parsed = GeneralInterestSchema.safeParse(raw);
   if (!parsed.success) {
     const fieldErrors: Partial<Record<keyof GeneralInterestInput, string>> = {};

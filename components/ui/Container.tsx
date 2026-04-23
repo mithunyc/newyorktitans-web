@@ -16,12 +16,7 @@ type ContainerProps = {
 
 export function Container({ as: Tag = "div", children, className }: ContainerProps) {
   return (
-    <Tag
-      className={cn(
-        "mx-auto w-full max-w-container px-6 md:px-8 lg:px-12",
-        className,
-      )}
-    >
+    <Tag className={cn("mx-auto w-full max-w-container px-6 md:px-8 lg:px-12", className)}>
       {children}
     </Tag>
   );

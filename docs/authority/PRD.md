@@ -1,12 +1,15 @@
 # PRD.md
 
 ## Problem Statement
+
 New York Titans needs a premium, sponsor-ready, community-first website that establishes credibility, attracts partners, supports growth, and reflects the organization’s values without becoming expensive, overbuilt, or operationally fragile. The club is not trying to launch a franchise-scale sports platform. It needs a beautiful, trustworthy, mobile-first digital flagship that helps sponsors, players, families, volunteers, and supporters understand what Titans stands for and how to engage.
 
 ## Solution
+
 Build a low-ops, visually elite website for New York Titans that presents the club as a New York cricket institution focused on talent development, discipline, belonging, leadership, and community impact. The MVP should prioritize sponsor conversion, player/community trust, and emotional brand presence. It should use a modern frontend stack with inexpensive hosting, clear calls to action, strong mobile UX, high design discipline, and lightweight content operations. The website should be future-ready but intentionally limited in scope for launch.
 
 ## User Stories
+
 1. As a prospective sponsor, I want to understand what New York Titans stands for within seconds, so that I can decide whether the organization aligns with my brand.
 2. As a prospective sponsor, I want the site to look premium and credible, so that I feel confident the club is serious.
 3. As a prospective sponsor, I want a clear way to inquire about partnership opportunities, so that I can contact the team without friction.
@@ -34,6 +37,7 @@ Build a low-ops, visually elite website for New York Titans that presents the cl
 25. As the club itself, we want a site that creates pride internally, so that members feel they are part of something serious and meaningful.
 
 ## Implementation Decisions
+
 - The website will be marketing-first and trust-first, not operations-heavy.
 - The design system will be governed by `DESIGN.md`.
 - Scope will be governed by `OUT_OF_SCOPE.md`.
@@ -49,6 +53,7 @@ Build a low-ops, visually elite website for New York Titans that presents the cl
 - No speculative backend complexity, dashboards, accounts, or member systems in MVP.
 
 ## Testing Decisions
+
 - Good tests should validate external behavior, user flows, accessibility basics, and layout integrity rather than implementation trivia.
 - Test the clarity and usability of the sponsor inquiry path.
 - Test the clarity and usability of the join/player interest path.
@@ -59,6 +64,7 @@ Build a low-ops, visually elite website for New York Titans that presents the cl
 - Review every primary page against `REVIEW_CHECKLIST.md` before launch.
 
 ## Out of Scope
+
 - ticketing systems
 - private portals
 - live scoring platform ownership
@@ -73,6 +79,7 @@ Build a low-ops, visually elite website for New York Titans that presents the cl
 - vanity features that create more burden than value
 
 ## Further Notes
+
 - The club’s mission, vision, values, and code of conduct are foundational source material and should shape both public narrative and design direction. fileciteturn0file0
 - The site must look beautiful enough for sponsor outreach while remaining honest, disciplined, and operationally realistic.
 - The highest risk is not lack of features. The highest risk is overbuilding, content burden, and design drift into generic AI aesthetics.

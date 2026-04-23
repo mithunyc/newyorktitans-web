@@ -18,17 +18,9 @@ import { z } from "zod";
 // Shared helpers
 // ---------------------------------------------------------------------------
 
-const Name = z
-  .string()
-  .trim()
-  .min(2, "Name is too short.")
-  .max(80, "Name is too long.");
+const Name = z.string().trim().min(2, "Name is too short.").max(80, "Name is too long.");
 
-const Email = z
-  .string()
-  .trim()
-  .toLowerCase()
-  .email("That doesn't look like a valid email.");
+const Email = z.string().trim().toLowerCase().email("That doesn't look like a valid email.");
 
 const Phone = z
   .string()
@@ -45,19 +37,11 @@ const Message = z
   .min(10, "Please tell us a little more (at least 10 characters).")
   .max(2000, "Message is too long. Please keep it under 2000 characters.");
 
-const Organization = z
-  .string()
-  .trim()
-  .min(2, "Organization name is too short.")
-  .max(120);
+const Organization = z.string().trim().min(2, "Organization name is too short.").max(120);
 
 // Honeypot: a hidden field that real users will not fill in. Submissions
 // where this is non-empty are silently dropped.
-const Honeypot = z
-  .string()
-  .max(0, "Bot detected.")
-  .optional()
-  .or(z.literal(""));
+const Honeypot = z.string().max(0, "Bot detected.").optional().or(z.literal(""));
 
 // ---------------------------------------------------------------------------
 // Sponsor Inquiry
@@ -79,12 +63,7 @@ export type SponsorInquiryInput = z.infer<typeof SponsorInquirySchema>;
 // General Interest
 // ---------------------------------------------------------------------------
 
-export const GeneralInterestCategory = z.enum([
-  "Player",
-  "Coach/Mentor",
-  "Volunteer",
-  "General",
-]);
+export const GeneralInterestCategory = z.enum(["Player", "Coach/Mentor", "Volunteer", "General"]);
 
 export const GeneralInterestSchema = z.object({
   name: Name,

@@ -100,6 +100,7 @@ mkdir -p content/pages public/images public/og public/downloads
 ```
 
 Initial content files (the agent fills these in):
+
 - `content/site.json`
 - `content/home.json`
 - `content/team.json`
