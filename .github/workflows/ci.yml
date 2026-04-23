@@ -112,6 +112,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: next-build
+          path: .
 
       - name: Run visual regression
         env:
@@ -154,6 +155,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: next-build
+          path: .
 
       - name: Run a11y scan
         env:
@@ -185,6 +187,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: next-build
+          path: .
 
       - name: Run Lighthouse CI
         env:
