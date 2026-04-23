@@ -1,0 +1,34 @@
+# CODEOWNERS
+#
+# Any change to authority documents, governance files, schemas, design tokens,
+# CI configuration, or environment requires review from a maintainer.
+#
+# Replace @nyt-maintainers with the actual GitHub team or username before
+# enabling branch protection.
+
+# Default — every file requires at least one maintainer review.
+*                                       @nyt-maintainers
+
+# Authority documents — extra-careful review.
+/docs/authority/                        @nyt-maintainers
+/AGENTS.md                              @nyt-maintainers
+/README.md                              @nyt-maintainers
+
+# Schemas, tokens, and validation — design system safety.
+/lib/tokens.ts                          @nyt-maintainers
+/lib/schemas/                           @nyt-maintainers
+/scripts/validate-content.ts            @nyt-maintainers
+
+# CI and deployment.
+/.github/                               @nyt-maintainers
+/next.config.mjs                        @nyt-maintainers
+/tailwind.config.ts                     @nyt-maintainers
+/playwright.config.ts                   @nyt-maintainers
+/lighthouserc.json                      @nyt-maintainers
+/package.json                           @nyt-maintainers
+/pnpm-lock.yaml                         @nyt-maintainers
+
+# Forms and email — sponsor funnel critical path.
+/app/actions/                           @nyt-maintainers
+/lib/email.ts                           @nyt-maintainers
+/components/forms/                      @nyt-maintainers

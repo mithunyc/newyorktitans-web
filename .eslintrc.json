@@ -1,0 +1,49 @@
+{
+  "extends": [
+    "next/core-web-vitals",
+    "next/typescript"
+  ],
+  "rules": {
+    "@next/next/no-html-link-for-pages": "error",
+    "@next/next/no-img-element": "error",
+    "react/no-unescaped-entities": "off",
+
+    "@typescript-eslint/consistent-type-imports": ["warn", { "prefer": "type-imports" }],
+    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }],
+    "@typescript-eslint/no-explicit-any": "error",
+
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          { "name": "next/image", "message": "Use the @/components/ui/Image wrapper which enforces alt text." }
+        ],
+        "patterns": [
+          {
+            "group": ["lodash", "lodash/*"],
+            "message": "Lodash is not on the dependency allowlist. Use native JS or write a small helper."
+          },
+          {
+            "group": ["moment", "dayjs", "date-fns"],
+            "message": "Date libraries are not on the dependency allowlist. Use native Intl.DateTimeFormat."
+          }
+        ]
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["components/ui/Image.tsx"],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    },
+    {
+      "files": ["scripts/**/*.ts", "tests/**/*.ts", "**/*.test.ts", "**/*.spec.ts"],
+      "rules": {
+        "no-console": "off"
+      }
+    }
+  ]
+}

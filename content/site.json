@@ -1,0 +1,19 @@
+{
+  "name": "New York Titans",
+  "shortName": "Titans",
+  "tagline": "More than a team. A home for cricket in New York.",
+  "url": "https://newyorktitans.org",
+  "contactEmail": "inquiries@newyorktitans.org",
+  "partnershipsEmail": "partnerships@newyorktitans.org",
+  "socials": {
+    "instagram": "",
+    "x": "",
+    "facebook": "",
+    "linkedin": "",
+    "youtube": ""
+  },
+  "footer": {
+    "orgSummary": "A nonprofit/community-first cricket organization in New York. Built for talent, character, and community.",
+    "address": ""
+  }
+}

@@ -1,0 +1,203 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  NODE_VERSION: 20
+
+jobs:
+  # ---------------------------------------------------------------------------
+  # Fast checks: typecheck, lint, content validation, unit tests.
+  # Runs on every PR. Must be green before any review begins.
+  # ---------------------------------------------------------------------------
+  verify:
+    name: Verify (typecheck, lint, content, unit)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Format check
+        run: pnpm format:check
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Validate content
+        run: pnpm validate:content
+
+      - name: Unit tests
+        run: pnpm test
+
+  # ---------------------------------------------------------------------------
+  # Build the production bundle and reuse it across downstream jobs.
+  # ---------------------------------------------------------------------------
+  build:
+    name: Build
+    needs: verify
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        env:
+          # Provide stub env vars so build does not fail. Real secrets are
+          # injected by Vercel at deploy time.
+          RESEND_API_KEY: ci-stub
+          NEXT_PUBLIC_SITE_URL: https://newyorktitans.org
+          NEXT_PUBLIC_PLAUSIBLE_DOMAIN: newyorktitans.org
+        run: pnpm build
+
+      - name: Upload build
+        uses: actions/upload-artifact@v4
+        with:
+          name: next-build
+          path: |
+            .next
+            public
+          retention-days: 1
+
+  # ---------------------------------------------------------------------------
+  # Visual regression: 6 baselines (3 pages × 2 breakpoints).
+  # Authority: D-031, AGENTS.md Section 11.
+  # ---------------------------------------------------------------------------
+  visual-regression:
+    name: Visual regression
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Install Playwright browsers
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Download build
+        uses: actions/download-artifact@v4
+        with:
+          name: next-build
+
+      - name: Run visual regression
+        env:
+          RESEND_API_KEY: ci-stub
+          NEXT_PUBLIC_SITE_URL: https://newyorktitans.org
+        run: pnpm test:visual
+
+      - name: Upload visual diffs
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-diffs
+          path: test-results
+          retention-days: 7
+
+  # ---------------------------------------------------------------------------
+  # Accessibility: axe-core scan on every public route.
+  # Authority: AGENTS.md Section 10, NYT pack 18.1.
+  # ---------------------------------------------------------------------------
+  accessibility:
+    name: Accessibility (axe-core)
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Install Playwright browsers
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Download build
+        uses: actions/download-artifact@v4
+        with:
+          name: next-build
+
+      - name: Run a11y scan
+        env:
+          RESEND_API_KEY: ci-stub
+          NEXT_PUBLIC_SITE_URL: https://newyorktitans.org
+        run: pnpm test:a11y
+
+  # ---------------------------------------------------------------------------
+  # Lighthouse CI: Home and Sponsors only. Mobile profile.
+  # Authority: NYT pack 16.5, 18.1.
+  # ---------------------------------------------------------------------------
+  lighthouse:
+    name: Lighthouse (Home, Sponsors)
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Download build
+        uses: actions/download-artifact@v4
+        with:
+          name: next-build
+
+      - name: Run Lighthouse CI
+        env:
+          RESEND_API_KEY: ci-stub
+          NEXT_PUBLIC_SITE_URL: https://newyorktitans.org
+        run: pnpm lighthouse

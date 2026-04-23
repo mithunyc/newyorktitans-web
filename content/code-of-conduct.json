@@ -1,0 +1,42 @@
+{
+  "hero": {
+    "eyebrow": "Our standards",
+    "headline": "How we hold ourselves accountable.",
+    "sub": "These standards apply to every player, coach, official, volunteer, parent, and supporter associated with New York Titans."
+  },
+  "sections": [
+    {
+      "id": "behavior",
+      "title": "Behavior",
+      "oneLiner": "Respect for opponents, officials, teammates, and the game in every interaction."
+    },
+    {
+      "id": "vilification",
+      "title": "Vilification",
+      "oneLiner": "No discrimination, harassment, or vilification on any grounds, ever."
+    },
+    {
+      "id": "substances",
+      "title": "Substance policy",
+      "oneLiner": "Clear rules for alcohol, drugs, and any substance that affects performance or safety."
+    },
+    {
+      "id": "members",
+      "title": "Members guidelines",
+      "oneLiner": "What members owe to each other, the club, and the wider community."
+    },
+    {
+      "id": "social-media",
+      "title": "Social media",
+      "oneLiner": "How we represent the club online — with respect, accuracy, and integrity."
+    }
+  ],
+  "values": [
+    "Integrity",
+    "Respect",
+    "Teamwork",
+    "Discipline",
+    "Community",
+    "Enjoyment"
+  ]
+}

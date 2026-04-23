@@ -1,0 +1,26 @@
+{
+  "hero": {
+    "headline": "Partner with a club building something real.",
+    "sub": "Sponsoring Titans is more than logo placement. It is an investment in youth development, leadership, and a growing cricket culture in New York."
+  },
+  "whyPartner": "New York Titans is a young club with a long ambition. We are building a serious community institution for cricket, character, and leadership in one of the most diverse cities in the world. Partnership with Titans means supporting that mission directly: standards on the field, character off it, and a credible home for players and families who care about the game.",
+  "themes": [
+    {
+      "name": "Founding",
+      "description": "For partners who want to be part of building Titans from the ground up. Visibility across the club and a long-term seat at the table."
+    },
+    {
+      "name": "Community",
+      "description": "For partners aligned with our mission to serve neighborhoods and bring cricket to people who haven't yet found their way in."
+    },
+    {
+      "name": "Youth Development",
+      "description": "For partners who want to invest directly in player development, mentoring, and pathways for young cricketers."
+    },
+    {
+      "name": "Team Support",
+      "description": "For partners providing kit, training facilities, equipment, or in-kind services that help the club operate."
+    }
+  ],
+  "supporters": []
+}

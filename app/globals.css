@@ -1,0 +1,87 @@
+/*
+ * app/globals.css
+ *
+ * Three Tailwind layers + base typographic resets + reduced-motion + focus.
+ * No component-specific styles here. Components use Tailwind classes.
+ *
+ * Authority: NYT pack DESIGN.md 11.3, 11.4, 11.10, 11.11.
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Color scheme hint to the browser. We're dark by default. */
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    /* Smooth in-page anchor scrolling, but only when motion is allowed. */
+    scroll-behavior: smooth;
+    /* Prevent iOS auto-zoom on form fields. 17px floor on body achieves this. */
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-midnight text-white font-sans antialiased;
+    font-feature-settings: "ss01", "cv01";
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Display headings use Fraunces with optical-size enabled. */
+  h1, h2, h3 {
+    @apply font-display;
+    font-optical-sizing: auto;
+  }
+
+  /* Selection: gold on midnight. */
+  ::selection {
+    background-color: #D6A84F;
+    color: #0A1020;
+  }
+
+  /* Visible, accessible focus ring on every interactive element.
+   * 2px Electric Field Blue at 2px offset, per DESIGN.md 11.11. */
+  :focus-visible {
+    outline: 2px solid #3E7BFA;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* Hide focus ring for mouse users; show for keyboard. */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  /* Reduced motion: kill animations entirely. AGENTS.md Section 9. */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Hide content visually but keep it for screen readers. Used by skip links. */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}
+
+@layer components {
+  /* Skip link, revealed on focus. Critical for keyboard users. */
+  .skip-link {
+    @apply absolute left-3 top-3 z-50 -translate-y-16 rounded-md bg-gold px-4 py-2 font-sans text-body font-medium text-midnight transition-transform focus:translate-y-0;
+  }
+}

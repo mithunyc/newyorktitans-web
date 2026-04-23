@@ -1,0 +1,45 @@
+{
+  "hero": {
+    "mode": "type",
+    "eyebrow": "New York Titans Cricket Club",
+    "headline": "Built in New York. Driven by purpose.",
+    "sub": "We are building more than a cricket team. A home for talent, character, leadership, and belonging through the game we love.",
+    "primary": { "label": "Partner With Us", "href": "/sponsors" },
+    "secondary": { "label": "Join Titans", "href": "/join" }
+  },
+  "missionStrip": "Talent. Character. Community. That is what Titans is built to grow.",
+  "pillars": [
+    {
+      "title": "Compete",
+      "body": "We play to win, never at the cost of integrity, respect, or sportsmanship."
+    },
+    {
+      "title": "Develop",
+      "body": "We invest in growth on and off the field through discipline, teamwork, and leadership."
+    },
+    {
+      "title": "Serve",
+      "body": "We use cricket to build community, open opportunity, and create a place people are proud to belong to."
+    }
+  ],
+  "sponsor": {
+    "heading": "Partner with a club building real impact.",
+    "body": "Sponsoring Titans is more than logo placement. It is an opportunity to support youth development, leadership, and a growing cricket culture in New York.",
+    "cta": { "label": "Become a Partner", "href": "/sponsors" }
+  },
+  "story": {
+    "heading": "Building something bigger than match day.",
+    "body": "Cricket can develop skill, confidence, character, and community. That is why Titans is not just about competition. It is about creating a standard, building pride, and giving players and families a place where they feel they belong."
+  },
+  "splitCta": {
+    "join": {
+      "heading": "Join Titans",
+      "body": "Whether you are a player, coach, volunteer, or supporter, there is a place for people who believe in discipline, growth, and community.",
+      "cta": { "label": "Express Interest", "href": "/join" }
+    },
+    "conduct": {
+      "line": "We hold ourselves to a written standard.",
+      "cta": { "label": "Read the Code of Conduct", "href": "/code-of-conduct" }
+    }
+  }
+}
