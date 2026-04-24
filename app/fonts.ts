@@ -16,8 +16,10 @@ export const fraunces = Fraunces({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-fraunces",
-  // Optical-size axis improves headline presence at large sizes.
-  axes: ["opsz", "SOFT"],
+  // opsz (optical-size) axis improves headline rendering at large sizes.
+  // SOFT axis removed: it inflated the woff2 from ~40 kB to 117.9 kB with
+  // no perceptible visual gain at headline sizes. Removal is the LCP fix.
+  axes: ["opsz"],
 });
 
 export const geistSans = localFont({

@@ -1,22 +1,31 @@
 /**
  * components/layout/MobileDrawer.tsx
  *
- * Client component. Slide-in drawer for mobile navigation.
- * Closes on Escape, on link click, and on backdrop tap.
- * Locks body scroll while open.
+ * Client component. Mobile navigation trigger + state host.
+ * The hamburger button is always server-rendered via static import in Header.
+ * The framer-motion DrawerPanel is lazy-loaded on first user tap so
+ * framer-motion never ships in the critical path.
+ *
+ * Split rationale: framer-motion was the dominant shared-JS cost contributor.
+ * MobileDrawerPanel owns all animation + focus management.
  *
  * Authority: NYT pack DESIGN.md 11.10, AGENTS.md Section 9.
  */
 
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
-import { List as MenuIcon, X as CloseIcon } from "@phosphor-icons/react/dist/ssr";
-import { cn } from "@/lib/cn";
-import { useReducedMotion } from "@/lib/motion";
-import { Button } from "@/components/ui/Button";
+import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
+import { List as MenuIcon } from "@phosphor-icons/react/dist/ssr";
+
+// Lazy-load the framer-motion-heavy panel. ssr:false is safe because:
+// 1. The panel is only ever rendered post-tap (never on initial load)
+// 2. The hamburger trigger is in this file and is always SSR'd
+// 3. AnimatePresence exit animations are preserved via hasOpened gate below
+const MobileDrawerPanel = dynamic(
+  () => import("./MobileDrawerPanel").then((m) => m.MobileDrawerPanel),
+  { ssr: false },
+);
 
 type NavItem = { label: string; href: string };
 
@@ -32,8 +41,9 @@ export function MobileDrawer({
   sponsorLabel = "Partner With Us",
 }: MobileDrawerProps) {
   const [open, setOpen] = useState(false);
-  const reduced = useReducedMotion();
-  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  // hasOpened: once true, the Panel stays mounted forever so AnimatePresence
+  // can play the exit animation. It never resets to false.
+  const [hasOpened, setHasOpened] = useState(false);
 
   // Lock body scroll when open.
   useEffect(() => {
@@ -55,10 +65,10 @@ export function MobileDrawer({
     return () => window.removeEventListener("keydown", handler);
   }, [open]);
 
-  // Move focus into the drawer on open for keyboard users.
-  useEffect(() => {
-    if (open) closeButtonRef.current?.focus();
-  }, [open]);
+  function handleOpen() {
+    setHasOpened(true);
+    setOpen(true);
+  }
 
   return (
     <>
@@ -67,74 +77,23 @@ export function MobileDrawer({
         aria-label="Open menu"
         aria-expanded={open}
         aria-controls="mobile-drawer"
-        onClick={() => setOpen(true)}
+        onClick={handleOpen}
         className="focus-visible:ring-ring inline-flex items-center justify-center rounded-md p-2 text-white focus-visible:outline-none focus-visible:ring-blue focus-visible:ring-offset-2 focus-visible:ring-offset-midnight md:hidden"
       >
         <MenuIcon size={28} weight="regular" />
       </button>
 
-      <AnimatePresence>
-        {open && (
-          <>
-            <motion.div
-              initial={reduced ? false : { opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={reduced ? { opacity: 0 } : { opacity: 0 }}
-              transition={{ duration: reduced ? 0 : 0.2 }}
-              onClick={() => setOpen(false)}
-              className="fixed inset-0 z-40 bg-midnight/80 backdrop-blur-sm md:hidden"
-              aria-hidden="true"
-            />
-            <motion.div
-              id="mobile-drawer"
-              role="dialog"
-              aria-modal="true"
-              aria-label="Site navigation"
-              initial={reduced ? false : { x: "100%" }}
-              animate={{ x: 0 }}
-              exit={reduced ? { x: "100%" } : { x: "100%" }}
-              transition={{
-                duration: reduced ? 0 : 0.3,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              className={cn(
-                "fixed right-0 top-0 z-50 flex h-[100dvh] w-full max-w-sm flex-col bg-navy text-white shadow-none md:hidden",
-              )}
-            >
-              <div className="flex items-center justify-between p-6">
-                <span className="font-display text-sub">Menu</span>
-                <button
-                  ref={closeButtonRef}
-                  type="button"
-                  aria-label="Close menu"
-                  onClick={() => setOpen(false)}
-                  className="focus-visible:ring-ring inline-flex items-center justify-center rounded-md p-2 text-white focus-visible:outline-none focus-visible:ring-blue focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
-                >
-                  <CloseIcon size={24} weight="regular" />
-                </button>
-              </div>
-
-              <nav className="flex flex-1 flex-col gap-1 px-6 pb-6">
-                {items.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    onClick={() => setOpen(false)}
-                    className="focus-visible:ring-ring rounded-md py-3 font-display text-h3 text-white hover:text-gold focus-visible:outline-none focus-visible:ring-blue"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-                <div className="mt-8">
-                  <Button href={sponsorHref} variant="primary" size="lg" className="w-full">
-                    {sponsorLabel}
-                  </Button>
-                </div>
-              </nav>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
+      {/* Panel mounts only after first tap so the framer-motion chunk is not
+          fetched on page load. Once mounted it stays to preserve exit animation. */}
+      {hasOpened && (
+        <MobileDrawerPanel
+          open={open}
+          onClose={() => setOpen(false)}
+          items={items}
+          sponsorHref={sponsorHref}
+          sponsorLabel={sponsorLabel}
+        />
+      )}
     </>
   );
 }

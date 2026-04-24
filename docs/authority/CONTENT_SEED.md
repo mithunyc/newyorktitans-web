@@ -70,7 +70,7 @@ Choose one primary headline direction for launch.
 
 ### Hero Option A
 
-**Built in New York. Driven by Purpose.**
+**Built in New York. Beyond the Boundary.**
 
 Supporting copy:
 New York Titans is building more than a cricket team. We are creating a home for talent, character, leadership, and belonging through the game we love.

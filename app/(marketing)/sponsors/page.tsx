@@ -10,7 +10,14 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Heading } from "@/components/ui/Heading";
 import { Eyebrow } from "@/components/ui/Eyebrow";
-import { SponsorForm } from "@/components/forms/SponsorForm";
+import dynamic from "next/dynamic";
+
+// Defers the react-hook-form + zod bundle to a non-blocking async chunk.
+// SSR is preserved (no ssr:false) so the form HTML is in the server response.
+// React 18 selective hydration keeps the SSR'd HTML visible until the chunk loads.
+const SponsorForm = dynamic(() =>
+  import("@/components/forms/SponsorForm").then((m) => m.SponsorForm),
+);
 import { SponsorsSchema } from "@/lib/schemas/sponsors";
 import sponsorsData from "@/content/sponsors.json";
 
