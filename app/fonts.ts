@@ -37,4 +37,4 @@ export const geistMono = localFont({
 });
 
 /** Combined className for <html>. */
-export const fontVariables = `${fraunces.variable} ${geistSans.variable} ${geistMono.variable}`;
+export const fontVariables = `${fraunces.variable} ${geistSans.variable}`;
