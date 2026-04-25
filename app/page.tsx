@@ -2,7 +2,6 @@
  * app/page.tsx
  *
  * Home page. Reads from /content/home.json (typed via lib/schemas/home.ts).
- * This file is the agent's reference for how a page should consume content.
  *
  * Authority: NYT pack Section 12.1 (Home wireframe).
  *
@@ -11,12 +10,17 @@
  */
 
 import type { Metadata } from "next";
+import { Image } from "@/components/ui/Image";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Heading } from "@/components/ui/Heading";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { RuleGold } from "@/components/ui/RuleGold";
 import { Button } from "@/components/ui/Button";
+import { HomeSchema } from "@/lib/schemas/home";
+import homeData from "@/content/home.json";
+
+const home = HomeSchema.parse(homeData);
 
 export const metadata: Metadata = {
   title: "New York Titans — Cricket. Character. Community.",
@@ -25,36 +29,44 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
-  // NOTE: This is a STUB. The agent must wire this to read from
-  // /content/home.json via the HomeSchema-validated import:
-  //
-  //   import home from "@/content/home.json";
-  //   import { HomeSchema } from "@/lib/schemas/home";
-  //   const data = HomeSchema.parse(home);
-  //
-  // Then map data.hero, data.pillars, data.sponsor, data.story, data.splitCta
-  // onto the matching sections below.
+  const { hero, missionStrip, pillars, sponsor, story, splitCta } = home;
 
   return (
     <>
       {/* HERO */}
       <Section variant="hero" surface="midnight" ariaLabel="Introduction">
         <Container>
-          <Eyebrow tone="gold">New York Titans Cricket Club</Eyebrow>
-          <Heading level={1} className="mt-6 max-w-[20ch]">
-            Built in New York. Driven by purpose.
-          </Heading>
-          <p className="mt-8 max-w-prose text-bodyLg text-mist">
-            We are building more than a cricket team. A home for talent, character, leadership, and
-            belonging through the game we love.
-          </p>
-          <div className="mt-10 flex flex-wrap gap-4">
-            <Button href="/sponsors" variant="primary" size="lg">
-              Partner With Us
-            </Button>
-            <Button href="/join" variant="secondary" size="lg">
-              Join Titans
-            </Button>
+          <div className="gap-10 grid items-center md:grid-cols-2 md:gap-12">
+            <div>
+              <Eyebrow tone="gold">{hero.eyebrow}</Eyebrow>
+              <Heading level={1} className="mt-6 max-w-[20ch]">
+                {hero.headline}
+              </Heading>
+              <p className="mt-8 max-w-prose text-bodyLg text-mist">{hero.sub}</p>
+              <div className="mt-10 flex flex-wrap gap-4">
+                <Button href={hero.primary.href} variant="primary" size="lg">
+                  {hero.primary.label}
+                </Button>
+                {hero.secondary && (
+                  <Button href={hero.secondary.href} variant="secondary" size="lg">
+                    {hero.secondary.label}
+                  </Button>
+                )}
+              </div>
+            </div>
+            {hero.mode === "image" && hero.image && hero.imageAlt && (
+              <div>
+                <Image
+                  src={hero.image}
+                  alt={hero.imageAlt}
+                  width={2200}
+                  height={1650}
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  priority
+                  className="h-auto w-full rounded-lg"
+                />
+              </div>
+            )}
           </div>
         </Container>
       </Section>
@@ -64,7 +76,7 @@ export default function HomePage() {
         <Container>
           <RuleGold className="mx-auto" />
           <p className="mx-auto mt-6 max-w-prose text-center text-bodyLg text-white">
-            Talent. Character. Community. That is what Titans is built to grow.
+            {missionStrip}
           </p>
         </Container>
       </Section>
@@ -77,20 +89,7 @@ export default function HomePage() {
             Three commitments that shape every decision.
           </Heading>
           <div className="mt-16 grid gap-12 md:grid-cols-3">
-            {[
-              {
-                title: "Compete",
-                body: "We play to win, never at the cost of integrity, respect, or sportsmanship.",
-              },
-              {
-                title: "Develop",
-                body: "We invest in growth on and off the field through discipline, teamwork, and leadership.",
-              },
-              {
-                title: "Serve",
-                body: "We use cricket to build community and create a place people are proud to belong to.",
-              },
-            ].map((p) => (
+            {pillars.map((p) => (
               <div key={p.title}>
                 <Heading level={3}>{p.title}</Heading>
                 <p className="mt-4 max-w-prose text-body text-mist">{p.body}</p>
@@ -107,16 +106,13 @@ export default function HomePage() {
             <div>
               <Eyebrow tone="gold">Partnership</Eyebrow>
               <Heading level={2} className="mt-4">
-                Partner with a club building real impact.
+                {sponsor.heading}
               </Heading>
-              <p className="mt-6 max-w-prose text-bodyLg text-mist">
-                Sponsoring Titans is more than logo placement. It is an opportunity to support youth
-                development, leadership, and a growing cricket culture in New York.
-              </p>
+              <p className="mt-6 max-w-prose text-bodyLg text-mist">{sponsor.body}</p>
             </div>
             <div className="flex md:justify-end">
-              <Button href="/sponsors" variant="primary" size="lg">
-                Become a Partner
+              <Button href={sponsor.cta.href} variant="primary" size="lg">
+                {sponsor.cta.label}
               </Button>
             </div>
           </div>
@@ -130,13 +126,9 @@ export default function HomePage() {
             <div>
               <Eyebrow>Our story</Eyebrow>
               <Heading level={2} className="mt-4">
-                Building something bigger than match day.
+                {story.heading}
               </Heading>
-              <p className="mt-6 max-w-prose text-body text-mist">
-                Cricket can develop skill, confidence, character, and community. That is why Titans
-                is not just about competition. It is about creating a standard, building pride, and
-                giving players and families a place where they feel they belong.
-              </p>
+              <p className="mt-6 max-w-prose text-body text-mist">{story.body}</p>
             </div>
             <div className="aspect-[4/5] rounded-lg bg-graphite" aria-hidden="true">
               {/* Placeholder until launch photo (D-028) is in place. */}
@@ -150,25 +142,20 @@ export default function HomePage() {
         <Container>
           <div className="grid gap-12 md:grid-cols-2">
             <div>
-              <Heading level={3}>Join Titans</Heading>
-              <p className="mt-4 max-w-prose text-body text-mist">
-                Whether you are a player, coach, volunteer, or supporter, there is a place for
-                people who believe in discipline, growth, and community.
-              </p>
+              <Heading level={3}>{splitCta.join.heading}</Heading>
+              <p className="mt-4 max-w-prose text-body text-mist">{splitCta.join.body}</p>
               <div className="mt-8">
-                <Button href="/join" variant="secondary" size="md">
-                  Express Interest
+                <Button href={splitCta.join.cta.href} variant="secondary" size="md">
+                  {splitCta.join.cta.label}
                 </Button>
               </div>
             </div>
             <div>
               <Heading level={3}>Standards on and off the field</Heading>
-              <p className="mt-4 max-w-prose text-body text-mist">
-                We hold ourselves to a written standard of conduct.
-              </p>
+              <p className="mt-4 max-w-prose text-body text-mist">{splitCta.conduct.line}</p>
               <div className="mt-8">
-                <Button href="/code-of-conduct" variant="tertiary">
-                  Read the Code of Conduct
+                <Button href={splitCta.conduct.cta.href} variant="tertiary">
+                  {splitCta.conduct.cta.label}
                 </Button>
               </div>
             </div>
