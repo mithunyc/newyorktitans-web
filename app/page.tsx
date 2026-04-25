@@ -61,7 +61,7 @@ export default function HomePage() {
                   alt={hero.imageAlt}
                   width={2200}
                   height={1650}
-                  sizes="(min-width: 768px) 50vw, 100vw"
+                  sizes="(min-width: 768px) 50vw, calc(100vw - 3rem)"
                   priority
                   className="h-auto w-full rounded-lg"
                 />
