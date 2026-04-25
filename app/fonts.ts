@@ -20,6 +20,7 @@ export const fraunces = Fraunces({
   // SOFT axis removed: it inflated the woff2 from ~40 kB to 117.9 kB with
   // no perceptible visual gain at headline sizes. Removal is the LCP fix.
   axes: ["opsz"],
+  preload: false,
 });
 
 export const geistSans = localFont({
@@ -27,6 +28,7 @@ export const geistSans = localFont({
   display: "swap",
   variable: "--font-geist-sans",
   weight: "100 900",
+  preload: false,
 });
 
 export const geistMono = localFont({
@@ -34,6 +36,7 @@ export const geistMono = localFont({
   display: "swap",
   variable: "--font-geist-mono",
   weight: "100 900",
+  preload: false,
 });
 
 /** Combined className for <html>. */
