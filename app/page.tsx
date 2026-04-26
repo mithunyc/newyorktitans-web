@@ -130,9 +130,20 @@ export default function HomePage() {
               </Heading>
               <p className="mt-6 max-w-prose text-body text-mist">{story.body}</p>
             </div>
-            <div className="aspect-[4/5] rounded-lg bg-graphite" aria-hidden="true">
-              {/* Placeholder until launch photo (D-028) is in place. */}
-            </div>
+            {story.image && story.imageAlt ? (
+              <div className="overflow-hidden rounded-lg">
+                <Image
+                  src={story.image}
+                  alt={story.imageAlt}
+                  width={800}
+                  height={1000}
+                  sizes="(min-width: 768px) 50vw, calc(100vw - 3rem)"
+                  className="h-auto w-full object-cover"
+                />
+              </div>
+            ) : (
+              <div className="aspect-[4/5] rounded-lg bg-graphite" aria-hidden="true" />
+            )}
           </div>
         </Container>
       </Section>

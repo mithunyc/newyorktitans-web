@@ -35,19 +35,26 @@ const Supporter = z.object({
   tier: z.enum(["Founding", "Community", "Youth Development", "Team Support"]).optional(),
 });
 
-export const SponsorsSchema = z.object({
-  hero: z.object({
-    headline: z.string().min(1).max(120),
-    sub: z.string().min(1).max(280),
-  }),
-  whyPartner: z.string().min(1).max(1200),
-  themes: z
-    .array(Theme)
-    .min(2, "Provide at least two partnership themes.")
-    .max(6, "No more than six partnership themes."),
-  // Empty array is valid. Pages must render gracefully when supporters is empty.
-  // Never include placeholder, prospective, or unauthorized logos.
-  supporters: z.array(Supporter),
-});
+export const SponsorsSchema = z
+  .object({
+    hero: z.object({
+      headline: z.string().min(1).max(120),
+      sub: z.string().min(1).max(280),
+    }),
+    whyPartner: z.string().min(1).max(1200),
+    communityImage: z.string().optional(),
+    communityImageAlt: z.string().optional(),
+    themes: z
+      .array(Theme)
+      .min(2, "Provide at least two partnership themes.")
+      .max(6, "No more than six partnership themes."),
+    // Empty array is valid. Pages must render gracefully when supporters is empty.
+    // Never include placeholder, prospective, or unauthorized logos.
+    supporters: z.array(Supporter),
+  })
+  .refine((s) => !s.communityImage || !!s.communityImageAlt, {
+    message: "When communityImage is provided, communityImageAlt is required.",
+    path: ["communityImageAlt"],
+  });
 
 export type Sponsors = z.infer<typeof SponsorsSchema>;

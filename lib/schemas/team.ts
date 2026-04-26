@@ -48,6 +48,8 @@ export const TeamSchema = z
     leadership: z.array(Leader),
     roster: z.array(Player),
     cultureStatement: z.string().min(1).max(800),
+    cultureImage: z.string().optional(),
+    cultureImageAlt: z.string().optional(),
   })
   .refine(
     (t) => {
@@ -65,6 +67,10 @@ export const TeamSchema = z
       message: "At most one vice-captain may be set in the roster.",
       path: ["roster"],
     },
-  );
+  )
+  .refine((t) => !t.cultureImage || !!t.cultureImageAlt, {
+    message: "When cultureImage is provided, cultureImageAlt is required.",
+    path: ["cultureImageAlt"],
+  });
 
 export type Team = z.infer<typeof TeamSchema>;

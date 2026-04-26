@@ -6,6 +6,7 @@
  */
 
 import type { Metadata } from "next";
+import { Image } from "@/components/ui/Image";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Heading } from "@/components/ui/Heading";
@@ -47,8 +48,24 @@ export default function SponsorsPage() {
 
       <Section surface="navy" ariaLabel="Why partner">
         <Container>
-          <Heading level={2}>Why partner with Titans</Heading>
-          <p className="mt-6 max-w-prose text-bodyLg text-mist">{sponsors.whyPartner}</p>
+          <div className="grid gap-12 md:grid-cols-2 md:items-center">
+            <div>
+              <Heading level={2}>Why partner with Titans</Heading>
+              <p className="mt-6 max-w-prose text-bodyLg text-mist">{sponsors.whyPartner}</p>
+            </div>
+            {sponsors.communityImage && sponsors.communityImageAlt && (
+              <div className="overflow-hidden rounded-lg">
+                <Image
+                  src={sponsors.communityImage}
+                  alt={sponsors.communityImageAlt}
+                  width={800}
+                  height={600}
+                  sizes="(min-width: 768px) 50vw, calc(100vw - 3rem)"
+                  className="h-auto w-full object-cover"
+                />
+              </div>
+            )}
+          </div>
         </Container>
       </Section>
 
