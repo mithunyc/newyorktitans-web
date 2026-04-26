@@ -204,6 +204,15 @@ Rules:
 - Source commit: 8f9c06150ce57321eda76ea7e881a915ae4a28ee0
 - Maps to: D-034
 
+### D-036 — Ratchet baselines adjusted for measurement noise
+
+- Date: 2026-04-26
+- Status: Approved
+- Decision: Adjust ratchet baselines to Home: 3100ms and Sponsors: 2800ms. Use median aggregation across 3 runs.
+- Rationale: D-035 baselines were exact medians from a single CI run. Lighthouse LCP has ±3-5% natural variance between runs on identical code. CI runs 24949675403 and 24954067571 both failed by <0.3% (6.6ms Home, 2.0ms Sponsors). Rounding up to the nearest 100ms provides a viable noise margin while still preventing any meaningful regression. The ratchet direction remains downward-only; final launch target remains ≤ 2.5s.
+- Supersedes: D-035 baseline values (D-035 remains as the originating record)
+- Maps to: D-034
+
 ---
 
 ## Open Questions

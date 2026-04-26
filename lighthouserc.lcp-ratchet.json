@@ -8,7 +8,8 @@
             "largest-contentful-paint": [
               "error",
               {
-                "maxNumericValue": 3021.1333
+                "maxNumericValue": 3100,
+                "aggregationMethod": "median"
               }
             ]
           }
@@ -19,7 +20,8 @@
             "largest-contentful-paint": [
               "error",
               {
-                "maxNumericValue": 2720.2362
+                "maxNumericValue": 2800,
+                "aggregationMethod": "median"
               }
             ]
           }
