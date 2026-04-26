@@ -1,0 +1,10 @@
+{
+    "name": "New York Titans",
+    "short_name": "NY Titans",
+    "description": "Cricket. Character. Community.",
+    "start_url": "/",
+    "display": "browser",
+    "background_color": "#0A1020",
+    "theme_color": "#0A1020",
+    "icons": []
+}

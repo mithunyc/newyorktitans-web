@@ -1,11 +1,19 @@
 {
   "hero": {
-    "mode": "type",
+    "mode": "image",
     "eyebrow": "New York Titans Cricket Club",
     "headline": "Built in New York. Driven by purpose.",
     "sub": "We are building more than a cricket team. A home for talent, character, leadership, and belonging through the game we love.",
-    "primary": { "label": "Partner With Us", "href": "/sponsors" },
-    "secondary": { "label": "Join Titans", "href": "/join" }
+    "primary": {
+      "label": "Partner With Us",
+      "href": "/sponsors"
+    },
+    "secondary": {
+      "label": "Join Titans",
+      "href": "/join"
+    },
+    "image": "/images/launch/team/home-hero-team-2025.jpg",
+    "imageAlt": "New York Titans players and youth members posing together on the field in New York in 2025."
   },
   "missionStrip": "Talent. Character. Community. That is what Titans is built to grow.",
   "pillars": [
@@ -25,7 +33,10 @@
   "sponsor": {
     "heading": "Partner with a club building real impact.",
     "body": "Sponsoring Titans is more than logo placement. It is an opportunity to support youth development, leadership, and a growing cricket culture in New York.",
-    "cta": { "label": "Become a Partner", "href": "/sponsors" }
+    "cta": {
+      "label": "Become a Partner",
+      "href": "/sponsors"
+    }
   },
   "story": {
     "heading": "Building something bigger than match day.",
@@ -35,11 +46,17 @@
     "join": {
       "heading": "Join Titans",
       "body": "Whether you are a player, coach, volunteer, or supporter, there is a place for people who believe in discipline, growth, and community.",
-      "cta": { "label": "Express Interest", "href": "/join" }
+      "cta": {
+        "label": "Express Interest",
+        "href": "/join"
+      }
     },
     "conduct": {
       "line": "We hold ourselves to a written standard.",
-      "cta": { "label": "Read the Code of Conduct", "href": "/code-of-conduct" }
+      "cta": {
+        "label": "Read the Code of Conduct",
+        "href": "/code-of-conduct"
+      }
     }
   }
 }

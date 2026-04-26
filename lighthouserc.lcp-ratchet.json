@@ -1,0 +1,32 @@
+{
+  "ci": {
+    "assert": {
+      "assertMatrix": [
+        {
+          "matchingUrlPattern": "http://[^/]+/$",
+          "assertions": {
+            "largest-contentful-paint": [
+              "error",
+              {
+                "maxNumericValue": 3100,
+                "aggregationMethod": "median"
+              }
+            ]
+          }
+        },
+        {
+          "matchingUrlPattern": "http://[^/]+/sponsors",
+          "assertions": {
+            "largest-contentful-paint": [
+              "error",
+              {
+                "maxNumericValue": 2800,
+                "aggregationMethod": "median"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

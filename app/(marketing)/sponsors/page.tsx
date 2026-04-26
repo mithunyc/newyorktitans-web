@@ -10,7 +10,17 @@ import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Heading } from "@/components/ui/Heading";
 import { Eyebrow } from "@/components/ui/Eyebrow";
-import { SponsorForm } from "@/components/forms/SponsorForm";
+import dynamic from "next/dynamic";
+
+// Defers the react-hook-form + zod bundle off the first-load critical path.
+// ssr:false is intentional: the form is below the fold and requires JS to function.
+// Serving the form as SSR HTML would force eager hydration bundle loading,
+// which competes with the Fraunces font download on 4G and inflates LCP.
+// The async chunk loads once the user scrolls to the form.
+const SponsorForm = dynamic(
+  () => import("@/components/forms/SponsorForm").then((m) => m.SponsorForm),
+  { ssr: false },
+);
 import { SponsorsSchema } from "@/lib/schemas/sponsors";
 import sponsorsData from "@/content/sponsors.json";
 

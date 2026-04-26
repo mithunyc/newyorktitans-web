@@ -61,7 +61,7 @@ const nextConfig = {
     formats: ["image/avif", "image/webp"],
     // No remote patterns. All images live in /public.
     remotePatterns: [],
-    deviceSizes: [375, 640, 750, 828, 1080, 1200, 1920],
+    deviceSizes: [375, 640, 660, 750, 828, 1080, 1200, 1920],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
 

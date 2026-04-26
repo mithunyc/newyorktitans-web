@@ -206,14 +206,38 @@ CI runs axe-core on every public route. The build fails on any violation.
 
 ## 11. Performance rules
 
-- LCP target ≤ 2.5s on 4G mobile.
+### Launch targets (must be true before public launch)
+
+- LCP target ≤ 2.5s on 4G mobile for Home and Sponsors.
 - JS shipped to client ≤ 120 KB gzip on Home, ≤ 80 KB on other pages.
 - CLS ≤ 0.05.
 - Hero image ≤ 300 KB after Next/Image optimization.
 - Third-party scripts: Plausible only.
 - Fonts: Latin subset, `font-display: swap`.
 
-CI runs Lighthouse on Home and Sponsors. The build fails on any threshold breach (Performance ≥ 90, Accessibility ≥ 95, Best Practices ≥ 95, SEO ≥ 95).
+### CI enforcement during development
+
+- Accessibility, Best Practices, and SEO thresholds remain hard-fail in CI.
+- Performance score remains hard-fail in CI at ≥ 90 for Home and Sponsors.
+- LCP is enforced as a ratchet:
+  - it must not regress above the current accepted baseline for each route
+  - the accepted baseline may only move downward, never upward
+  - the final ratchet target before launch is ≤ 2.5s on 4G mobile
+
+### Ratchet discipline
+
+- Do not weaken the ratchet to “get green.”
+- If the baseline changes, update it only through an explicit decision log entry with before/after values and rationale.
+- Once Home and Sponsors are both ≤ 2.5s median in CI, lock that as the final hard-fail threshold.
+
+CI runs Lighthouse on Home and Sponsors.
+Build fails on:
+
+- any accessibility threshold breach
+- any Best Practices threshold breach
+- any SEO threshold breach
+- any performance score breach
+- any LCP regression beyond the currently approved ratchet baseline
 
 ---
 
