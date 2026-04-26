@@ -24,7 +24,7 @@
     "test:visual:update": "playwright test --project=visual-regression --update-snapshots",
     "test:a11y": "playwright test --project=accessibility",
     "test:e2e": "playwright test",
-    "lighthouse": "lhci autorun",
+    "lighthouse": "lhci autorun && lhci assert --config=lighthouserc.lcp-ratchet.json",
     "prebuild": "pnpm validate:content && pnpm typecheck",
     "preinstall": "npx only-allow pnpm",
     "check": "pnpm typecheck && pnpm lint && pnpm validate:content && pnpm test"

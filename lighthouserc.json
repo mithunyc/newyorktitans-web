@@ -55,6 +55,7 @@
             "minScore": 0.95
           }
         ],
+        "largest-contentful-paint": "off",
         "cumulative-layout-shift": [
           "error",
           {
@@ -92,31 +93,7 @@
         "no-vulnerable-libraries": "off",
         "non-composited-animations": "off",
         "prioritize-lcp-image": "off"
-      },
-      "assertMatrix": [
-        {
-          "matchingUrlPattern": "http://[^/]+/$",
-          "assertions": {
-            "largest-contentful-paint": [
-              "error",
-              {
-                "maxNumericValue": 3021.1333
-              }
-            ]
-          }
-        },
-        {
-          "matchingUrlPattern": "http://[^/]+/sponsors",
-          "assertions": {
-            "largest-contentful-paint": [
-              "error",
-              {
-                "maxNumericValue": 2720.2362
-              }
-            ]
-          }
-        }
-      ]
+      }
     },
     "upload": {
       "target": "temporary-public-storage"
