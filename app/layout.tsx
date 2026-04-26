@@ -85,6 +85,32 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={fontVariables}>
+      {/*
+       * Manual Fraunces font preload.
+       *
+       * Next.js 14 App Router does NOT auto-emit <link rel="preload" as="font">
+       * for Google variable fonts with custom axes (opsz). The .p. suffix file
+       * exists but the preload link is silently omitted from the HTML head.
+       *
+       * Without this preload, the browser only discovers Fraunces after CSS
+       * parsing — adding ~300-500ms to LCP under 4G throttling, which is the
+       * proven dominant blocker for both Home (3031ms) and Sponsors (2732ms).
+       *
+       * The hash is content-addressed and stable across builds as long as the
+       * fonts.ts Fraunces config (subsets, axes, display) doesn't change.
+       * If fonts.ts changes, rebuild and update the hash here.
+       *
+       * Authority: NYT pack 16.5 (LCP ≤ 2.5s), AGENTS.md Section 11.
+       */}
+      <head>
+        <link
+          rel="preload"
+          href="/_next/static/media/6e8c7cb283336a9d-s.p.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body>
         <a href="#main" className="skip-link">
           Skip to main content
