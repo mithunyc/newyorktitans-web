@@ -131,13 +131,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
 
         {/* Plausible — privacy-first, cookie-free analytics.
-            Only loaded in production. */}
+            Only loaded in production. lazyOnload defers until browser idle
+            time so no <link rel="preload"> hint is emitted for the external
+            plausible.io script during the critical rendering path. */}
         {process.env.NODE_ENV === "production" && PLAUSIBLE_DOMAIN && (
           <Script
             src="https://plausible.io/js/script.js"
             data-domain={PLAUSIBLE_DOMAIN}
-            strategy="afterInteractive"
-            defer
+            strategy="lazyOnload"
           />
         )}
       </body>

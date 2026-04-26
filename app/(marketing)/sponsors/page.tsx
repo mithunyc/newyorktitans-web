@@ -12,11 +12,14 @@ import { Heading } from "@/components/ui/Heading";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import dynamic from "next/dynamic";
 
-// Defers the react-hook-form + zod bundle to a non-blocking async chunk.
-// SSR is preserved (no ssr:false) so the form HTML is in the server response.
-// React 18 selective hydration keeps the SSR'd HTML visible until the chunk loads.
-const SponsorForm = dynamic(() =>
-  import("@/components/forms/SponsorForm").then((m) => m.SponsorForm),
+// Defers the react-hook-form + zod bundle off the first-load critical path.
+// ssr:false is intentional: the form is below the fold and requires JS to function.
+// Serving the form as SSR HTML would force eager hydration bundle loading,
+// which competes with the Fraunces font download on 4G and inflates LCP.
+// The async chunk loads once the user scrolls to the form.
+const SponsorForm = dynamic(
+  () => import("@/components/forms/SponsorForm").then((m) => m.SponsorForm),
+  { ssr: false },
 );
 import { SponsorsSchema } from "@/lib/schemas/sponsors";
 import sponsorsData from "@/content/sponsors.json";
