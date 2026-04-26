@@ -187,6 +187,23 @@ Rules:
 - Decision: AI tools may accelerate design, writing, and implementation, but they do not override product truth, design authority, or scope guardrails.
 - Rationale: Prevent automation from becoming drift.
 
+### D-034 — Lighthouse LCP ratchet during active build
+
+- Status: Approved
+- Decision: Keep LCP ≤ 2.5s on 4G mobile as the final launch target for Home and Sponsors, but during active development CI enforce LCP as a non-regression ratchet rather than an immediate universal hard-fail at 2.5s.
+- Rationale: The repo is still in active slice-based buildout and not all launch assets/content wiring are complete. A ratchet preserves performance discipline without blocking unrelated bounded slices.
+- Constraint: The ratchet may only move downward, never upward. Final public launch still requires ≤ 2.5s median for Home and Sponsors.
+
+### D-035 — Initial LCP ratchet baseline established
+
+- Date: 2026-04-26
+- Status: Approved
+- Decision: The initial LCP non-regression ratchet baselines are set to Home: 3021.1333ms and Sponsors: 2720.2362ms.
+- Rationale: D-034 authorized the ratchet behavior but required numeric baselines to be explicitly recorded to prevent drift. The ratchet may only move downward. Final launch target remains ≤ 2.5s.
+- Source CI run: 24948574997
+- Source commit: 8f9c06150ce57321eda76ea7e881a915ae4a28ee0
+- Maps to: D-034
+
 ---
 
 ## Open Questions

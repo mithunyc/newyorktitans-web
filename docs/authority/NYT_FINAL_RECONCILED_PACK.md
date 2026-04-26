@@ -203,7 +203,9 @@ Home, About, Team, Sponsors, Join, Contact, Code of Conduct (public summary), Pr
 
 - WCAG 2.2 AA baseline.
 - Mobile-first; real-device QA on iOS Safari and Android Chrome.
-- Lighthouse Mobile thresholds (Performance ≥ 90, Accessibility ≥ 95, Best Practices ≥ 95, SEO ≥ 95) gated in CI for Home and Sponsors.
+- Lighthouse Mobile CI gates for Home and Sponsors:
+  - **Hard CI gates (always enforced):** Accessibility ≥ 95, Best Practices ≥ 95, SEO ≥ 95, Performance ≥ 90.
+  - **LCP enforcement:** During active development, LCP is enforced as a non-regression ratchet (must not exceed the current accepted baseline; baseline may only move downward). Final launch requires LCP ≤ 2.5s median on 4G mobile for both Home and Sponsors. See D-034 in DECISION_LOG.md.
 - axe-core scan in CI for every public route.
 - Playwright visual regression for Home, Sponsors, Join at 375px and 1280px.
 - Build-time JSON schema validation via Zod.
@@ -941,8 +943,8 @@ MDX permits headings, paragraphs, lists, and a small number of approved componen
 
 ### 16.5 Performance budget
 
-- Lighthouse Mobile (Moto G4 profile): Performance ≥ 90, Accessibility ≥ 95, Best Practices ≥ 95, SEO ≥ 95. Gated in CI.
-- LCP ≤ 2.5s on 4G mobile.
+- **Hard CI gates (always enforced):** Lighthouse Mobile — Performance ≥ 90, Accessibility ≥ 95, Best Practices ≥ 95, SEO ≥ 95. Gated in CI for Home and Sponsors.
+- **LCP enforcement:** During active development, LCP is enforced as a per-route non-regression ratchet (must not exceed the current approved baseline for each route; baselines may only move downward). Final launch requires LCP ≤ 2.5s median on 4G mobile for both Home and Sponsors. See D-034 and D-035 in DECISION_LOG.md.
 - Total page weight: ≤ 800 KB Home, ≤ 600 KB other pages, excluding hero image.
 - Hero image: ≤ 300 KB after Next/Image optimization (AVIF/WebP).
 - JS shipped to client: ≤ 120 KB gzip Home, ≤ 80 KB other pages.
@@ -987,7 +989,7 @@ MDX permits headings, paragraphs, lists, and a small number of approved componen
 - ESLint.
 - Zod validation of all `/content/*.json` via `scripts/validate-content.ts`.
 - axe-core accessibility scan on every public route.
-- Lighthouse CI for Home and Sponsors (mobile profile, thresholds in 16.5).
+- Lighthouse CI for Home and Sponsors (mobile profile, thresholds in 7.3 and 16.5; LCP enforced per-route per D-035).
 - Playwright visual regression for Home, Sponsors, Join at 375px and 1280px (six baselines).
 - Token-vs-DESIGN.md drift check (lightweight unit test that asserts color/spacing values match documented tokens).
 

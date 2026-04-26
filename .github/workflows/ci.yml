@@ -2,9 +2,9 @@ name: CI
 
 on:
   pull_request:
-    branches: [ main ]
+    branches: [main]
   push:
-    branches: [ main ]
+    branches: [main]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -166,7 +166,7 @@ jobs:
 
   # ---------------------------------------------------------------------------
   # Lighthouse CI: Home and Sponsors only. Mobile profile.
-  # Authority: NYT pack 16.5, 18.1.
+  # Authority: NYT pack 7.3, 16.5; D-034, D-035; AGENTS.md §11.
   # ---------------------------------------------------------------------------
   lighthouse:
     name: Lighthouse (Home, Sponsors)
