@@ -138,7 +138,7 @@ export default function HomePage() {
                   width={1024}
                   height={768}
                   loading="lazy"
-                  sizes="(min-width: 768px) 50vw, calc(100vw - 3rem)"
+                  sizes="(min-width: 768px) 45vw, 280px"
                   className="h-auto w-full object-cover"
                 />
               </div>

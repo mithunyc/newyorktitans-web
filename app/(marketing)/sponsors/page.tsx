@@ -60,8 +60,8 @@ export default function SponsorsPage() {
                   alt={sponsors.communityImageAlt}
                   width={576}
                   height={1024}
-                  priority
-                  sizes="(min-width: 768px) 50vw, calc(100vw - 3rem)"
+                  loading="lazy"
+                  sizes="(min-width: 768px) 45vw, 280px"
                   className="h-auto w-full object-cover"
                 />
               </div>
