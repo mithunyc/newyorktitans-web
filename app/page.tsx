@@ -59,8 +59,8 @@ export default function HomePage() {
                 <Image
                   src={hero.image}
                   alt={hero.imageAlt}
-                  width={2200}
-                  height={1650}
+                  width={1600}
+                  height={1200}
                   sizes="(min-width: 768px) 50vw, calc(100vw - 3rem)"
                   priority
                   className="h-auto w-full rounded-lg"
@@ -135,8 +135,9 @@ export default function HomePage() {
                 <Image
                   src={story.image}
                   alt={story.imageAlt}
-                  width={800}
-                  height={1000}
+                  width={1024}
+                  height={768}
+                  loading="lazy"
                   sizes="(min-width: 768px) 50vw, calc(100vw - 3rem)"
                   className="h-auto w-full object-cover"
                 />

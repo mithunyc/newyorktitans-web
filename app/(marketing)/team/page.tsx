@@ -95,8 +95,9 @@ export default function TeamPage() {
                 <Image
                   src={team.cultureImage}
                   alt={team.cultureImageAlt}
-                  width={800}
-                  height={600}
+                  width={1024}
+                  height={503}
+                  loading="lazy"
                   sizes="(min-width: 768px) 50vw, calc(100vw - 3rem)"
                   className="h-auto w-full object-cover"
                 />
