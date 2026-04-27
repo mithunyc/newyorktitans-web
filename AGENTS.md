@@ -320,3 +320,8 @@ When two solutions present themselves, choose the one that:
 - can be reverted in one commit.
 
 Less is the right answer more often than it should be.
+
+---
+
+## 18. Learned Rules (Machine Enforcement)
+1. **[PROCESS] CI Green Mandate:** Never assume pipeline passing status from local script execution. For final merges, specifically invoke `gh pr view <id> --json statusCheckRollup` and verify every single job explicitly triggers a structurally parsed `SUCCESS` or `NEUTRAL` "conclusion" string. Ignorant skipped check masking is forbidden across visually regression heavy or Lighthouse performance gated checks.
