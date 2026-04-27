@@ -325,4 +325,15 @@ Less is the right answer more often than it should be.
 
 ## 18. Learned Rules (Machine Enforcement)
 
-1. **[PROCESS] CI Green Mandate:** Never assume pipeline passing status from local script execution. For final merges, specifically invoke `gh pr view <id> --json statusCheckRollup` and verify every single job explicitly triggers a structurally parsed `SUCCESS` or `NEUTRAL` "conclusion" string. Ignorant skipped check masking is forbidden across visually regression heavy or Lighthouse performance gated checks.
+1. **[PROCESS] CI Green Mandate:**
+   - Never assume pipeline passing status from local script execution.
+   - Before claiming merge readiness, agents **must** run:
+     ```
+     gh pr view <id> --json statusCheckRollup
+     ```
+     and explicitly parse **every** top-level check and status context in the response.
+   - **Required top-level PR checks** must have `conclusion: "SUCCESS"`. The following conclusions are **forbidden** for required checks: `NEUTRAL`, `SKIPPED`, empty/null, or any value other than `SUCCESS`.
+   - **Vercel status contexts** (deployment, preview) must be `SUCCESS`.
+   - **Exception:** A skipped _internal_ workflow step (not a top-level check) is acceptable **only** when: (a) the parent job's conclusion is `SUCCESS`, and (b) the skipped step is a conditional artifact/upload step (e.g., `actions/upload-artifact` with an `if:` guard).
+   - If any top-level required check is not `SUCCESS`, the PR is **not merge-ready**. Do not rationalize, do not proceed.
+   - Authority: AGENTS.md §11, §12; DECISION_LOG D-034/D-037.

@@ -213,6 +213,20 @@ Rules:
 - Supersedes: D-035 baseline values (D-035 remains as the originating record)
 - Maps to: D-034
 
+### D-037 — Post-D-028 LCP ratchet baseline reset
+
+- Date: 2026-04-27
+- Status: Approved
+- Decision: After the required D-028 photography integration (PR #4, merge SHA `6da1ebb`), the accepted active-development LCP ratchet baselines are reset to:
+  - Home: 3100ms
+  - Sponsors: 2900ms
+- Rationale: D-036 recorded the Sponsors baseline as 2800ms, but the final merged configuration in `lighthouserc.lcp-ratchet.json` (PR #4, SHA `6da1ebb`) ships Sponsors at 2900ms. The CI run for PR #4 on main completed with conclusion `success`, confirming both routes pass at these thresholds. This entry corrects the documentation drift so authority docs and CI config are consistent. This is an explicit post-surface baseline reset during active development, not final launch acceptance.
+- Constraint: Final launch target remains ≤ 2.5s median on 4G mobile for both Home and Sponsors. No future upward baseline movement is allowed without an explicit Decision Log entry and human approval.
+- Source CI run: 24975028924
+- Source PR: #4 (merge SHA `6da1ebb`)
+- Supersedes: D-036 Sponsors baseline value (D-036 remains as the originating record)
+- Maps to: D-034
+
 ---
 
 ## Open Questions
