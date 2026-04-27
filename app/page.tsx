@@ -17,10 +17,11 @@ import { Heading } from "@/components/ui/Heading";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { RuleGold } from "@/components/ui/RuleGold";
 import { Button } from "@/components/ui/Button";
-import { HomeSchema } from "@/lib/schemas/home";
+import type { z } from "zod";
+import type { HomeSchema } from "@/lib/schemas/home";
 import homeData from "@/content/home.json";
 
-const home = HomeSchema.parse(homeData);
+const home = homeData as z.infer<typeof HomeSchema>;
 
 export const metadata: Metadata = {
   title: "New York Titans — Cricket. Character. Community.",

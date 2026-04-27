@@ -22,10 +22,11 @@ const SponsorForm = dynamic(
   () => import("@/components/forms/SponsorForm").then((m) => m.SponsorForm),
   { ssr: false },
 );
-import { SponsorsSchema } from "@/lib/schemas/sponsors";
+import type { z } from "zod";
+import type { SponsorsSchema } from "@/lib/schemas/sponsors";
 import sponsorsData from "@/content/sponsors.json";
 
-const sponsors = SponsorsSchema.parse(sponsorsData);
+const sponsors = sponsorsData as z.infer<typeof SponsorsSchema>;
 
 export const metadata: Metadata = {
   title: "Partner with us",
