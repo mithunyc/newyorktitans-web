@@ -205,7 +205,7 @@ Home, About, Team, Sponsors, Join, Contact, Code of Conduct (public summary), Pr
 - Mobile-first; real-device QA on iOS Safari and Android Chrome.
 - Lighthouse Mobile CI gates for Home and Sponsors:
   - **Hard CI gates (always enforced):** Accessibility ≥ 95, Best Practices ≥ 95, SEO ≥ 95, Performance ≥ 90.
-  - **LCP enforcement:** During active development, LCP is enforced as a non-regression ratchet (must not exceed the current accepted baseline; baseline may only move downward). Final launch requires LCP ≤ 2.5s median on 4G mobile for both Home and Sponsors. See D-034 in DECISION_LOG.md.
+  - **LCP enforcement:** During active development, LCP is enforced as a non-regression ratchet (must not exceed the current accepted baseline; baseline may only move downward, except by explicit Decision Log entry plus human approval for a surface-changing reset). Final launch requires LCP ≤ 2.5s median on 4G mobile for both Home and Sponsors. Current active-development baselines are recorded in DECISION_LOG.md. See D-034 through D-037.
 - axe-core scan in CI for every public route.
 - Playwright visual regression for Home, Sponsors, Join at 375px and 1280px.
 - Build-time JSON schema validation via Zod.
@@ -944,7 +944,7 @@ MDX permits headings, paragraphs, lists, and a small number of approved componen
 ### 16.5 Performance budget
 
 - **Hard CI gates (always enforced):** Lighthouse Mobile — Performance ≥ 90, Accessibility ≥ 95, Best Practices ≥ 95, SEO ≥ 95. Gated in CI for Home and Sponsors.
-- **LCP enforcement:** During active development, LCP is enforced as a per-route non-regression ratchet (must not exceed the current approved baseline for each route; baselines may only move downward). Final launch requires LCP ≤ 2.5s median on 4G mobile for both Home and Sponsors. See D-034, D-035, and D-036 in DECISION_LOG.md.
+- **LCP enforcement:** During active development, LCP is enforced as a per-route non-regression ratchet (must not exceed the current approved baseline for each route; baselines may only move downward, except by explicit Decision Log entry plus human approval for a surface-changing reset). Final launch requires LCP ≤ 2.5s median on 4G mobile for both Home and Sponsors. Current active-development baselines are recorded in DECISION_LOG.md. See D-034, D-035, D-036, and D-037.
 - Total page weight: ≤ 800 KB Home, ≤ 600 KB other pages, excluding hero image.
 - Hero image: ≤ 300 KB after Next/Image optimization (AVIF/WebP).
 - JS shipped to client: ≤ 120 KB gzip Home, ≤ 80 KB other pages.
@@ -989,7 +989,7 @@ MDX permits headings, paragraphs, lists, and a small number of approved componen
 - ESLint.
 - Zod validation of all `/content/*.json` via `scripts/validate-content.ts`.
 - axe-core accessibility scan on every public route.
-- Lighthouse CI for Home and Sponsors (mobile profile, thresholds in 7.3 and 16.5; LCP enforced per-route per D-034/D-036).
+- Lighthouse CI for Home and Sponsors (mobile profile, thresholds in 7.3 and 16.5; LCP enforced per-route per D-034/D-037).
 - Playwright visual regression for Home, Sponsors, Join at 375px and 1280px (six baselines).
 - Token-vs-DESIGN.md drift check (lightweight unit test that asserts color/spacing values match documented tokens).
 
