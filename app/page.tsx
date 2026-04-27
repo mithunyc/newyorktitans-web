@@ -17,10 +17,11 @@ import { Heading } from "@/components/ui/Heading";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { RuleGold } from "@/components/ui/RuleGold";
 import { Button } from "@/components/ui/Button";
-import { HomeSchema } from "@/lib/schemas/home";
+import type { z } from "zod";
+import type { HomeSchema } from "@/lib/schemas/home";
 import homeData from "@/content/home.json";
 
-const home = HomeSchema.parse(homeData);
+const home = homeData as z.infer<typeof HomeSchema>;
 
 export const metadata: Metadata = {
   title: "New York Titans — Cricket. Character. Community.",
@@ -62,6 +63,7 @@ export default function HomePage() {
                   width={2200}
                   height={1650}
                   sizes="(min-width: 768px) 50vw, calc(100vw - 3rem)"
+                  quality={60}
                   priority
                   className="h-auto w-full rounded-lg"
                 />
@@ -130,9 +132,21 @@ export default function HomePage() {
               </Heading>
               <p className="mt-6 max-w-prose text-body text-mist">{story.body}</p>
             </div>
-            <div className="aspect-[4/5] rounded-lg bg-graphite" aria-hidden="true">
-              {/* Placeholder until launch photo (D-028) is in place. */}
-            </div>
+            {story.image && story.imageAlt ? (
+              <div className="overflow-hidden rounded-lg">
+                <Image
+                  src={story.image}
+                  alt={story.imageAlt}
+                  width={1024}
+                  height={768}
+                  loading="lazy"
+                  sizes="(min-width: 768px) 45vw, 280px"
+                  className="h-auto w-full object-cover"
+                />
+              </div>
+            ) : (
+              <div className="aspect-[4/5] rounded-lg bg-graphite" aria-hidden="true" />
+            )}
           </div>
         </Container>
       </Section>

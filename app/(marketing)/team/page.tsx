@@ -6,6 +6,7 @@
  */
 
 import type { Metadata } from "next";
+import { Image } from "@/components/ui/Image";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Heading } from "@/components/ui/Heading";
@@ -79,12 +80,29 @@ export default function TeamPage() {
 
       <Section surface="midnight" ariaLabel="Culture">
         <Container>
-          <Heading level={2}>Our culture</Heading>
-          <p className="mt-6 max-w-prose text-bodyLg text-mist">{team.cultureStatement}</p>
-          <div className="mt-10">
-            <Button href="/join" variant="primary" size="lg">
-              Join Titans
-            </Button>
+          <div className="grid gap-12 md:grid-cols-2 md:items-center">
+            <div>
+              <Heading level={2}>Our culture</Heading>
+              <p className="mt-6 max-w-prose text-bodyLg text-mist">{team.cultureStatement}</p>
+              <div className="mt-10">
+                <Button href="/join" variant="primary" size="lg">
+                  Join Titans
+                </Button>
+              </div>
+            </div>
+            {team.cultureImage && team.cultureImageAlt && (
+              <div className="overflow-hidden rounded-lg">
+                <Image
+                  src={team.cultureImage}
+                  alt={team.cultureImageAlt}
+                  width={1024}
+                  height={503}
+                  loading="lazy"
+                  sizes="(min-width: 768px) 50vw, calc(100vw - 3rem)"
+                  className="h-auto w-full object-cover"
+                />
+              </div>
+            )}
           </div>
         </Container>
       </Section>

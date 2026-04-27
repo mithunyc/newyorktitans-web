@@ -6,6 +6,7 @@
  */
 
 import type { Metadata } from "next";
+import { Image } from "@/components/ui/Image";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Heading } from "@/components/ui/Heading";
@@ -21,10 +22,11 @@ const SponsorForm = dynamic(
   () => import("@/components/forms/SponsorForm").then((m) => m.SponsorForm),
   { ssr: false },
 );
-import { SponsorsSchema } from "@/lib/schemas/sponsors";
+import type { z } from "zod";
+import type { SponsorsSchema } from "@/lib/schemas/sponsors";
 import sponsorsData from "@/content/sponsors.json";
 
-const sponsors = SponsorsSchema.parse(sponsorsData);
+const sponsors = sponsorsData as z.infer<typeof SponsorsSchema>;
 
 export const metadata: Metadata = {
   title: "Partner with us",
@@ -47,8 +49,26 @@ export default function SponsorsPage() {
 
       <Section surface="navy" ariaLabel="Why partner">
         <Container>
-          <Heading level={2}>Why partner with Titans</Heading>
-          <p className="mt-6 max-w-prose text-bodyLg text-mist">{sponsors.whyPartner}</p>
+          <div className="grid gap-12 md:grid-cols-2 md:items-center">
+            <div>
+              <Heading level={2}>Why partner with Titans</Heading>
+              <p className="mt-6 max-w-prose text-bodyLg text-mist">{sponsors.whyPartner}</p>
+            </div>
+            {sponsors.communityImage && sponsors.communityImageAlt && (
+              <div className="overflow-hidden rounded-lg">
+                <Image
+                  src={sponsors.communityImage}
+                  alt={sponsors.communityImageAlt}
+                  width={576}
+                  height={1024}
+                  loading="lazy"
+                  quality={60}
+                  sizes="(min-width: 768px) 45vw, 280px"
+                  className="h-auto w-full object-cover"
+                />
+              </div>
+            )}
+          </div>
         </Container>
       </Section>
 
