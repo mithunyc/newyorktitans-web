@@ -61,6 +61,7 @@ export default function SponsorsPage() {
                   width={576}
                   height={1024}
                   loading="lazy"
+                  quality={60}
                   sizes="(min-width: 768px) 45vw, 280px"
                   className="h-auto w-full object-cover"
                 />

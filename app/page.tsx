@@ -62,6 +62,7 @@ export default function HomePage() {
                   width={2200}
                   height={1650}
                   sizes="(min-width: 768px) 50vw, calc(100vw - 3rem)"
+                  quality={60}
                   priority
                   className="h-auto w-full rounded-lg"
                 />
