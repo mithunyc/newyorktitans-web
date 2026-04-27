@@ -29,13 +29,20 @@ export function Header() {
     >
       <Container>
         <div className="md:h-20 flex h-16 items-center justify-between gap-6">
-          {/* Wordmark — replace with logo SVG once approved (D-032). */}
+          {/* D-032: horizontal web logo mark. */}
           <Link
             href="/"
-            className="focus-visible:ring-ring font-display text-bodyLg font-semibold tracking-heading text-white hover:text-gold focus-visible:outline-none focus-visible:ring-blue focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
+            className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
             aria-label="New York Titans — home"
           >
-            New York Titans
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/brand/logo-secondary.svg"
+              alt="New York Titans"
+              width={50}
+              height={40}
+              className="md:h-10 h-8 w-auto"
+            />
           </Link>
 
           {/* Desktop nav */}

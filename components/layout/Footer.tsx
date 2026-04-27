@@ -67,7 +67,17 @@ export function Footer({
         <div className="grid gap-12 py-16 md:grid-cols-3">
           {/* Org summary */}
           <div>
-            <p className="font-display text-sub font-semibold">New York Titans</p>
+            {/* D-032: compact emblem mark. */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/brand/logo-emblem.svg"
+              alt=""
+              width={40}
+              height={40}
+              className="h-10 w-10"
+              aria-hidden="true"
+            />
+            <p className="mt-3 font-display text-sub font-semibold">New York Titans</p>
             <RuleGold className="mt-3" />
             <p className="mt-4 max-w-prose text-body text-mist">
               A nonprofit/community-first cricket organization in New York. Built for talent,
