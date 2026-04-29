@@ -27,7 +27,6 @@ function requireEnv(name: string): string {
   return v;
 }
 
-const RESEND_API_KEY = requireEnv("RESEND_API_KEY");
 const NOREPLY_SENDER =
   process.env.NOREPLY_SENDER ?? "New York Titans <noreply@mail.newyorktitans.org>";
 const INQUIRIES_INBOX = process.env.INQUIRIES_INBOX ?? "inquiries@newyorktitans.org";
@@ -36,7 +35,10 @@ const PARTNERSHIPS_INBOX = process.env.PARTNERSHIPS_INBOX ?? "partnerships@newyo
 // Lazy-init so envs are read once per process, not per request.
 let _resend: Resend | null = null;
 function client(): Resend {
-  if (!_resend) _resend = new Resend(RESEND_API_KEY);
+  if (!_resend) {
+    const key = requireEnv("RESEND_API_KEY");
+    _resend = new Resend(key);
+  }
   return _resend;
 }
 
