@@ -7,28 +7,28 @@
 # enabling branch protection.
 
 # Default — every file requires at least one maintainer review.
-*                                       @nyt-maintainers
+*                                       @mithunyc
 
 # Authority documents — extra-careful review.
-/docs/authority/                        @nyt-maintainers
-/AGENTS.md                              @nyt-maintainers
-/README.md                              @nyt-maintainers
+/docs/authority/                        @mithunyc
+/AGENTS.md                              @mithunyc
+/README.md                              @mithunyc
 
 # Schemas, tokens, and validation — design system safety.
-/lib/tokens.ts                          @nyt-maintainers
-/lib/schemas/                           @nyt-maintainers
-/scripts/validate-content.ts            @nyt-maintainers
+/lib/tokens.ts                          @mithunyc
+/lib/schemas/                           @mithunyc
+/scripts/validate-content.ts            @mithunyc
 
 # CI and deployment.
-/.github/                               @nyt-maintainers
-/next.config.mjs                        @nyt-maintainers
-/tailwind.config.ts                     @nyt-maintainers
-/playwright.config.ts                   @nyt-maintainers
-/lighthouserc.json                      @nyt-maintainers
-/package.json                           @nyt-maintainers
-/pnpm-lock.yaml                         @nyt-maintainers
+/.github/                               @mithunyc
+/next.config.mjs                        @mithunyc
+/tailwind.config.ts                     @mithunyc
+/playwright.config.ts                   @mithunyc
+/lighthouserc.json                      @mithunyc
+/package.json                           @mithunyc
+/pnpm-lock.yaml                         @mithunyc
 
 # Forms and email — sponsor funnel critical path.
-/app/actions/                           @nyt-maintainers
-/lib/email.ts                           @nyt-maintainers
+/app/actions/                           @mithunyc
+/lib/email.ts                           @mithunyc
 /components/forms/                      @nyt-maintainers
