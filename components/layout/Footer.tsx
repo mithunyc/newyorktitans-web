@@ -8,6 +8,7 @@
  */
 
 import Link from "next/link";
+import { Image } from "@/components/ui/Image";
 import { Container } from "@/components/ui/Container";
 import { RuleGold } from "@/components/ui/RuleGold";
 
@@ -67,15 +68,14 @@ export function Footer({
         <div className="grid gap-12 py-16 md:grid-cols-3">
           {/* Org summary */}
           <div>
-            {/* D-032: compact emblem mark. */}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            {/* D-032: compact emblem mark. Decorative — text label follows. */}
+            <Image
               src="/brand/logo-emblem.svg"
               alt=""
-              width={40}
-              height={40}
-              className="h-10 w-10"
-              aria-hidden="true"
+              decorative
+              width={56}
+              height={56}
+              className="h-14 w-14"
             />
             <p className="mt-3 font-display text-sub font-semibold">New York Titans</p>
             <RuleGold className="mt-3" />

@@ -8,6 +8,7 @@
  */
 
 import Link from "next/link";
+import { Image } from "@/components/ui/Image";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { MobileDrawer } from "./MobileDrawer";
@@ -35,13 +36,13 @@ export function Header() {
             className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
             aria-label="New York Titans — home"
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/brand/logo-secondary.svg"
-              alt="New York Titans"
-              width={50}
-              height={40}
-              className="md:h-10 h-8 w-auto"
+              alt=""
+              decorative
+              width={160}
+              height={56}
+              className="md:h-14 h-10 w-auto"
             />
           </Link>
 
