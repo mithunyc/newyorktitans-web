@@ -8,7 +8,6 @@
  */
 
 import Link from "next/link";
-import { Image } from "@/components/ui/Image";
 import { Container } from "@/components/ui/Container";
 import { RuleGold } from "@/components/ui/RuleGold";
 
@@ -68,16 +67,7 @@ export function Footer({
         <div className="grid gap-12 py-16 md:grid-cols-3">
           {/* Org summary */}
           <div>
-            {/* D-032: compact emblem mark. Decorative — text label follows. */}
-            <Image
-              src="/brand/logo-emblem.svg"
-              alt=""
-              decorative
-              width={56}
-              height={56}
-              className="h-14 w-14"
-            />
-            <p className="mt-3 font-display text-sub font-semibold">New York Titans</p>
+            <p className="font-display text-sub font-semibold">New York Titans</p>
             <RuleGold className="mt-3" />
             <p className="mt-4 max-w-prose text-body text-mist">
               A nonprofit/community-first cricket organization in New York. Built for talent,

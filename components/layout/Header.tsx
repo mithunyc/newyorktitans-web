@@ -8,7 +8,6 @@
  */
 
 import Link from "next/link";
-import { Image } from "@/components/ui/Image";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { MobileDrawer } from "./MobileDrawer";
@@ -30,20 +29,13 @@ export function Header() {
     >
       <Container>
         <div className="md:h-20 flex h-16 items-center justify-between gap-6">
-          {/* D-032: horizontal web logo mark. */}
+          {/* Wordmark — replace with logo SVG once approved (D-032). */}
           <Link
             href="/"
-            className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
+            className="focus-visible:ring-ring font-display text-bodyLg font-semibold tracking-heading text-white hover:text-gold focus-visible:outline-none focus-visible:ring-blue focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
             aria-label="New York Titans — home"
           >
-            <Image
-              src="/brand/logo-secondary.svg"
-              alt=""
-              decorative
-              width={160}
-              height={56}
-              className="md:h-14 h-10 w-auto"
-            />
+            New York Titans
           </Link>
 
           {/* Desktop nav */}
