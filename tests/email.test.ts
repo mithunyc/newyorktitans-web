@@ -70,7 +70,7 @@ describe("email module", () => {
   it("sends both inquiry and auto-responder when RESEND_API_KEY exists", async () => {
     process.env.RESEND_API_KEY = "re_test_123";
     const { sendSponsorInquiry } = await import("../lib/email");
-    
+
     mockSend.mockResolvedValueOnce({ id: "1" }).mockResolvedValueOnce({ id: "2" });
 
     const result = await sendSponsorInquiry({
@@ -100,7 +100,7 @@ describe("email module", () => {
   it("sends both general inquiry and auto-responder when RESEND_API_KEY exists", async () => {
     process.env.RESEND_API_KEY = "re_test_123";
     const { sendGeneralInterest } = await import("../lib/email");
-    
+
     mockSend.mockResolvedValueOnce({ id: "1" }).mockResolvedValueOnce({ id: "2" });
 
     const result = await sendGeneralInterest({
