@@ -95,30 +95,7 @@ const nextConfig = {
     ];
   },
 
-  async redirects() {
-    return [
-      // Canonicalize www → apex.
-      {
-        source: "/:path*",
-        has: [{ type: "host", value: "www.newyorktitans.org" }],
-        destination: "https://newyorktitans.org/:path*",
-        permanent: true,
-      },
-      // Canonicalize secondary domain → apex.
-      {
-        source: "/:path*",
-        has: [{ type: "host", value: "nytitans.org" }],
-        destination: "https://newyorktitans.org/:path*",
-        permanent: true,
-      },
-      {
-        source: "/:path*",
-        has: [{ type: "host", value: "www.nytitans.org" }],
-        destination: "https://newyorktitans.org/:path*",
-        permanent: true,
-      },
-    ];
-  },
+
 
   // Strict experimental features only.
   experimental: {
