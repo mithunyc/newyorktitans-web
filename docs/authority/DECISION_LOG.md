@@ -57,14 +57,14 @@ Rules:
 ### D-005 — Canonical domain
 
 - Date: 2026-04-21
-- Status: Provisional
+- Status: Superseded by D-039
 - Decision: `newyorktitans.org` will be the canonical domain.
 - Rationale: It is clearer, more institutional, and better aligned with nonprofit/community positioning.
 
 ### D-006 — Secondary domain
 
 - Date: 2026-04-21
-- Status: Provisional
+- Status: Superseded by D-038
 - Decision: `nytitans.org` will be acquired and redirected to the canonical domain.
 - Rationale: It is useful for shorthand, print use, and fallback discoverability.
 
@@ -227,11 +227,26 @@ Rules:
 - Supersedes: D-036 Sponsors baseline value (D-036 remains as the originating record)
 - Maps to: D-034
 
+### D-038 — Secondary domain acquisition deferred
+
+- Date: 2026-05-01
+- Status: Approved
+- Decision: `nytitans.org` will not be acquired or configured for the MVP.
+- Rationale: The secondary shorthand domain is intentionally deferred/dropped to keep nonprofit maintenance cost minimal.
+- Supersedes: D-006
+
+### D-039 — Canonical domain changed to www
+
+- Date: 2026-05-01
+- Status: Approved
+- Decision: `www.newyorktitans.org` will be the canonical domain, and the apex `newyorktitans.org` will redirect to it.
+- Rationale: Vercel environment is currently configured to redirect the apex to `www`. To avoid disruption and minimize maintenance, the team adopts `www` as canonical.
+- Supersedes: D-005
+
 ---
 
 ## Open Questions
 
-- Confirm canonical domain purchase status.
 - Confirm whether donation capability should be present at launch or deferred.
 - Confirm whether an Updates/News page is needed in MVP or deferred until content capacity is clearer.
 - Confirm whether official brand colors and logo files already exist.
