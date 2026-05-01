@@ -16,6 +16,19 @@ export const metadata: Metadata = {
   title: "About",
   description:
     "New York Titans is a nonprofit/community-first cricket organization. Our mission, values, and standards.",
+  openGraph: {
+    title: "About — New York Titans",
+    description:
+      "New York Titans is a nonprofit/community-first cricket organization. Our mission, values, and standards.",
+    images: [{ url: "/images/launch/portraits/about-founder-portrait.jpg" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About — New York Titans",
+    description:
+      "New York Titans is a nonprofit/community-first cricket organization. Our mission, values, and standards.",
+    images: ["/images/launch/portraits/about-founder-portrait.jpg"],
+  },
 };
 
 export default async function AboutPage() {

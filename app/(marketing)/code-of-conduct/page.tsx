@@ -25,6 +25,19 @@ export const metadata: Metadata = {
   title: "Code of Conduct",
   description:
     "The written standard every New York Titans player, coach, official, volunteer, and supporter is held to.",
+  openGraph: {
+    title: "Code of Conduct — New York Titans",
+    description:
+      "The written standard every New York Titans player, coach, official, volunteer, and supporter is held to.",
+    images: [{ url: "/images/launch/action/team-match-action-02.jpg" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Code of Conduct — New York Titans",
+    description:
+      "The written standard every New York Titans player, coach, official, volunteer, and supporter is held to.",
+    images: ["/images/launch/action/team-match-action-02.jpg"],
+  },
 };
 
 export default async function CodeOfConductPage() {

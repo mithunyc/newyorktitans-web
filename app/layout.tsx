@@ -43,9 +43,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/og/default.png",
-        width: 1200,
-        height: 630,
+        url: "/images/launch/team/home-hero-team-2025.jpg",
+        width: 2200,
+        height: 1650,
         alt: "New York Titans",
       },
     ],
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "New York Titans",
     description: "Cricket. Character. Community.",
-    images: ["/og/default.png"],
+    images: ["/images/launch/team/home-hero-team-2025.jpg"],
   },
   robots: {
     index: true,

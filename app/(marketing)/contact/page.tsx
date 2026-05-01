@@ -22,6 +22,19 @@ export const metadata: Metadata = {
   title: "Contact",
   description:
     "Get in touch with New York Titans. Partnership, player, volunteer, or general enquiries welcome.",
+  openGraph: {
+    title: "Contact — New York Titans",
+    description:
+      "Get in touch with New York Titans. Partnership, player, volunteer, or general enquiries welcome.",
+    images: [{ url: "/images/launch/action/team-match-action-01.jpg" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact — New York Titans",
+    description:
+      "Get in touch with New York Titans. Partnership, player, volunteer, or general enquiries welcome.",
+    images: ["/images/launch/action/team-match-action-01.jpg"],
+  },
 };
 
 export default function ContactPage() {
