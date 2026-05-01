@@ -449,9 +449,8 @@ See Section 8 and the project's `OUT_OF_SCOPE.md`. No exceptions without a DECIS
 - Preview deploys for every PR (mandatory for review).
 - Production protected: only merges to `main` deploy to production. Direct commits to `main` prohibited via branch protection rules.
 - Domains:
-  - `newyorktitans.org` (apex, canonical).
-  - `www.newyorktitans.org` (308 to apex).
-  - `nytitans.org` (308 to apex).
+  - `www.newyorktitans.org` (canonical).
+  - `newyorktitans.org` (apex, 308 to www).
 - HTTPS enforced. HSTS enabled after 30-day burn-in.
 - Email DNS: SPF, DKIM, DMARC configured for `mail.newyorktitans.org`. DMARC starts at `p=none`, escalates to `p=quarantine` after 30 days of clean reports.
 
@@ -971,9 +970,8 @@ MDX permits headings, paragraphs, lists, and a small number of approved componen
   - Plausible smallest plan: ~$9/month, or Vercel Web Analytics if cheaper.
   - Domain registration: ~$15/year per domain.
 - **Domains:**
-  - `newyorktitans.org` apex (canonical). Confirm purchase status at project kickoff.
-  - `www.newyorktitans.org` (308 to apex).
-  - `nytitans.org` (308 to apex). Confirm purchase status.
+  - `www.newyorktitans.org` (canonical).
+  - `newyorktitans.org` (apex, 308 to www). Confirm purchase status at project kickoff.
 - **Branch protection:** `main` requires PR + 1 approval + green CI. No direct pushes.
 - **Backups:** Source of truth is Git. No database. Vercel retains deployment history for one-click rollback.
 - **Monitoring:** Vercel built-in. Free uptime ping (UptimeRobot or BetterStack free tier) on `/api/health`.
@@ -1000,7 +998,7 @@ MDX permits headings, paragraphs, lists, and a small number of approved componen
   - Email received in operator inbox.
   - Auto-responder received in submitter inbox (and not in spam).
   - Reply-To behavior works when operator hits Reply.
-- Domain canonical and redirects verified (try `nytitans.org`, `www.newyorktitans.org`, expect 308 to apex).
+- Domain canonical and redirects verified (try `newyorktitans.org`, expect 308 to `www.newyorktitans.org`).
 - OG previews verified on iMessage, WhatsApp, Slack, LinkedIn.
 - Code of Conduct summary verified to match the source document accurately.
 - Three authentic photos confirmed in production assets.
@@ -1052,22 +1050,22 @@ If this is not true after the gates pass, the site is not ready.
 
 ## 20. Final Risk Register
 
-| ID  | Risk                                              | Likelihood       | Impact | Mitigation                                                                                                           |
-| --- | ------------------------------------------------- | ---------------- | ------ | -------------------------------------------------------------------------------------------------------------------- |
-| R1  | Visual drift into AI-slop generic sports template | High             | High   | DESIGN.md binding. Visual regression baseline (D-031). PR review.                                                    |
-| R2  | Form submissions land in spam                     | High             | High   | Verified sending subdomain. SPF/DKIM/DMARC. Auto-responder QA from real iOS/Android devices on launch (D-029, 18.2). |
-| R3  | Photography never materializes                    | Medium           | High   | Hard launch gate of 3 authentic photos (D-028). Image art-direction brief in repo.                                   |
-| R4  | Operator breaks the build editing content         | Low (post-D-024) | High   | JSON + MDX with Zod validation. PR previews. Operations doc with screenshots.                                        |
-| R5  | Donation pathway launched before compliance ready | Low              | High   | Support page removed entirely from MVP (D-025). Reintroduction requires DECISION_LOG entry.                          |
-| R6  | Sponsor inquiry receives spam                     | Medium           | Medium | Honeypot + server-side rate limit. Add Cloudflare Turnstile or hCaptcha only if abuse appears.                       |
-| R7  | Coding agent overbuilds the stack                 | Medium           | High   | OUT_OF_SCOPE.md and this pack are binding. AGENTS.md in repo with dependency allowlist. PR review.                   |
-| R8  | Roster includes minors without consent            | Low              | High   | Zod schema requires `consentRecorded: true` when `isMinor: true`. Build fails otherwise.                             |
-| R9  | Domain confusion or misconfigured redirects       | Low              | Medium | Single canonical apex; 308 from secondary and `www`. Pre-launch verification step in 18.2.                           |
-| R10 | Updates page reintroduced and goes stale          | Medium           | Medium | Default OFF. Reintroduction requires documented publishing rhythm and DECISION_LOG entry.                            |
-| R11 | Costs creep past ceiling                          | Low              | Low    | Soft cap $25/month tracked in operations doc; overrun triggers DECISION_LOG entry.                                   |
-| R12 | Sole-developer bus factor                         | Medium           | High   | Stack is conventional (Next.js + Vercel). Operations doc + AGENTS.md make handover possible.                         |
-| R13 | Sponsor logo grid embarrassment                   | Medium           | Medium | `LogoStrip` renders nothing when supporter array is empty. Never use placeholder or filler logos.                    |
-| R14 | Code of Conduct summary diverges from source PDF  | Low              | Medium | Manual gate at launch (18.2). Operator playbook flags this whenever the source document is updated.                  |
+| ID  | Risk                                              | Likelihood       | Impact | Mitigation                                                                                                                     |
+| --- | ------------------------------------------------- | ---------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------ |
+| R1  | Visual drift into AI-slop generic sports template | High             | High   | DESIGN.md binding. Visual regression baseline (D-031). PR review.                                                              |
+| R2  | Form submissions land in spam                     | High             | High   | Verified sending subdomain. SPF/DKIM/DMARC. Auto-responder QA from real iOS/Android devices on launch (D-029, 18.2).           |
+| R3  | Photography never materializes                    | Medium           | High   | Hard launch gate of 3 authentic photos (D-028). Image art-direction brief in repo.                                             |
+| R4  | Operator breaks the build editing content         | Low (post-D-024) | High   | JSON + MDX with Zod validation. PR previews. Operations doc with screenshots.                                                  |
+| R5  | Donation pathway launched before compliance ready | Low              | High   | Support page removed entirely from MVP (D-025). Reintroduction requires DECISION_LOG entry.                                    |
+| R6  | Sponsor inquiry receives spam                     | Medium           | Medium | Honeypot + server-side rate limit. Add Cloudflare Turnstile or hCaptcha only if abuse appears.                                 |
+| R7  | Coding agent overbuilds the stack                 | Medium           | High   | OUT_OF_SCOPE.md and this pack are binding. AGENTS.md in repo with dependency allowlist. PR review.                             |
+| R8  | Roster includes minors without consent            | Low              | High   | Zod schema requires `consentRecorded: true` when `isMinor: true`. Build fails otherwise.                                       |
+| R9  | Domain confusion or misconfigured redirects       | Low              | Medium | `www.newyorktitans.org` canonical; apex 308 to www (D-039). No secondary domain (D-038). Pre-launch verification step in 18.2. |
+| R10 | Updates page reintroduced and goes stale          | Medium           | Medium | Default OFF. Reintroduction requires documented publishing rhythm and DECISION_LOG entry.                                      |
+| R11 | Costs creep past ceiling                          | Low              | Low    | Soft cap $25/month tracked in operations doc; overrun triggers DECISION_LOG entry.                                             |
+| R12 | Sole-developer bus factor                         | Medium           | High   | Stack is conventional (Next.js + Vercel). Operations doc + AGENTS.md make handover possible.                                   |
+| R13 | Sponsor logo grid embarrassment                   | Medium           | Medium | `LogoStrip` renders nothing when supporter array is empty. Never use placeholder or filler logos.                              |
+| R14 | Code of Conduct summary diverges from source PDF  | Low              | Medium | Manual gate at launch (18.2). Operator playbook flags this whenever the source document is updated.                            |
 
 ---
 
