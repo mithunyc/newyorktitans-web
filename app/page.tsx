@@ -27,6 +27,19 @@ export const metadata: Metadata = {
   title: "New York Titans — Cricket. Character. Community.",
   description:
     "A nonprofit/community-first cricket organization in New York. Built for talent, character, and community.",
+  openGraph: {
+    title: "New York Titans — Cricket. Character. Community.",
+    description:
+      "A nonprofit/community-first cricket organization in New York. Built for talent, character, and community.",
+    images: [{ url: "/images/launch/team/home-hero-team-2025.jpg" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "New York Titans — Cricket. Character. Community.",
+    description:
+      "A nonprofit/community-first cricket organization in New York. Built for talent, character, and community.",
+    images: ["/images/launch/team/home-hero-team-2025.jpg"],
+  },
 };
 
 export default function HomePage() {

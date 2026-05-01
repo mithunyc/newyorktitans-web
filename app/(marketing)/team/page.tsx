@@ -20,6 +20,17 @@ const team = TeamSchema.parse(teamData);
 export const metadata: Metadata = {
   title: "Team",
   description: "The people behind New York Titans — leadership, players, and culture.",
+  openGraph: {
+    title: "Team — New York Titans",
+    description: "The people behind New York Titans — leadership, players, and culture.",
+    images: [{ url: "/images/launch/team/team-group-primary.jpg" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Team — New York Titans",
+    description: "The people behind New York Titans — leadership, players, and culture.",
+    images: ["/images/launch/team/team-group-primary.jpg"],
+  },
 };
 
 export default function TeamPage() {

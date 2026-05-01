@@ -16,6 +16,19 @@ export const metadata: Metadata = {
   title: "Join Titans",
   description:
     "Players, coaches, mentors, and volunteers. Tell us how you want to be part of New York Titans.",
+  openGraph: {
+    title: "Join Titans — New York Titans",
+    description:
+      "Players, coaches, mentors, and volunteers. Tell us how you want to be part of New York Titans.",
+    images: [{ url: "/images/launch/community/join-onboarding.jpg" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Join Titans — New York Titans",
+    description:
+      "Players, coaches, mentors, and volunteers. Tell us how you want to be part of New York Titans.",
+    images: ["/images/launch/community/join-onboarding.jpg"],
+  },
 };
 
 const PATHWAYS = [

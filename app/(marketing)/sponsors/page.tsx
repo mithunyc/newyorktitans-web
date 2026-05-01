@@ -32,6 +32,19 @@ export const metadata: Metadata = {
   title: "Partner with us",
   description:
     "Support youth development, leadership, and a growing cricket culture in New York. Become a Titans partner.",
+  openGraph: {
+    title: "Partner with us — New York Titans",
+    description:
+      "Support youth development, leadership, and a growing cricket culture in New York. Become a Titans partner.",
+    images: [{ url: "/images/launch/community/sponsors-community-youth-volunteering.jpg" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Partner with us — New York Titans",
+    description:
+      "Support youth development, leadership, and a growing cricket culture in New York. Become a Titans partner.",
+    images: ["/images/launch/community/sponsors-community-youth-volunteering.jpg"],
+  },
 };
 
 export default function SponsorsPage() {
