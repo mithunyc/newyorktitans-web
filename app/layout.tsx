@@ -14,7 +14,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import "./globals.css";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.newyorktitans.org";
+const SITE_URL = "https://www.newyorktitans.org";
 const PLAUSIBLE_DOMAIN = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN ?? "newyorktitans.org";
 
 export const metadata: Metadata = {
