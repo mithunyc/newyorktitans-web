@@ -394,7 +394,7 @@ See Section 8 and the project's `OUT_OF_SCOPE.md`. No exceptions without a DECIS
 /public
   /images
   /og
-  /downloads                          -> code-of-conduct.pdf
+  /downloads                          -> code-of-conduct.docx
 /scripts
   /validate-content.ts                -> runs Zod validation against all JSON in CI
 ```

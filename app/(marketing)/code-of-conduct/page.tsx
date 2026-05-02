@@ -80,11 +80,11 @@ export default async function CodeOfConductPage() {
 
           <RuleGold className="mt-16" />
 
-          {/* PDF download if configured */}
-          {conduct.pdfDownload && (
+          {/* Document download if configured */}
+          {conduct.documentDownload && (
             <div className="mt-10">
-              <Button href={conduct.pdfDownload.href} variant="secondary" size="md" external>
-                {conduct.pdfDownload.label}
+              <Button href={conduct.documentDownload.href} variant="secondary" size="md" external>
+                {conduct.documentDownload.label}
               </Button>
             </div>
           )}

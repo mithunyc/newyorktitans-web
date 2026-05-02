@@ -243,6 +243,13 @@ Rules:
 - Rationale: Vercel environment is currently configured to redirect the apex to `www`. To avoid disruption and minimize maintenance, the team adopts `www` as canonical.
 - Supersedes: D-005
 
+### D-040 — Code of Conduct source artifact
+
+- Date: 2026-05-02
+- Status: Approved
+- Decision: DOCX is approved as the public source artifact for the Code of Conduct download for the MVP.
+- Rationale: Local environment lacks native tooling (Word/LibreOffice/pandoc) to autonomously generate a PDF from the DOCX source. Rather than shipping a fake 0-byte PDF or blocking the MVP, we will ship the real DOCX source of truth as the download artifact.
+
 ---
 
 ## Open Questions
