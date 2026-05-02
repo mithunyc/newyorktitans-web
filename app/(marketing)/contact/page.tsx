@@ -26,6 +26,7 @@ export const metadata: Metadata = {
     title: "Contact — New York Titans",
     description:
       "Get in touch with New York Titans. Partnership, player, volunteer, or general enquiries welcome.",
+    url: "https://www.newyorktitans.org/contact",
     images: [{ url: "/images/launch/action/team-match-action-01.jpg" }],
   },
   twitter: {

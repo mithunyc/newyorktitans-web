@@ -23,6 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Team — New York Titans",
     description: "The people behind New York Titans — leadership, players, and culture.",
+    url: "https://www.newyorktitans.org/team",
     images: [{ url: "/images/launch/team/team-group-primary.jpg" }],
   },
   twitter: {

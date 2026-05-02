@@ -29,6 +29,7 @@ export const metadata: Metadata = {
     title: "Code of Conduct — New York Titans",
     description:
       "The written standard every New York Titans player, coach, official, volunteer, and supporter is held to.",
+    url: "https://www.newyorktitans.org/code-of-conduct",
     images: [{ url: "/images/launch/action/team-match-action-02.jpg" }],
   },
   twitter: {

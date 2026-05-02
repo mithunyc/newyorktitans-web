@@ -20,6 +20,7 @@ export const metadata: Metadata = {
     title: "About — New York Titans",
     description:
       "New York Titans is a nonprofit/community-first cricket organization. Our mission, values, and standards.",
+    url: "https://www.newyorktitans.org/about",
     images: [{ url: "/images/launch/portraits/about-founder-portrait.jpg" }],
   },
   twitter: {

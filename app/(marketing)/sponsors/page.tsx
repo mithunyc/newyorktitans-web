@@ -36,6 +36,7 @@ export const metadata: Metadata = {
     title: "Partner with us — New York Titans",
     description:
       "Support youth development, leadership, and a growing cricket culture in New York. Become a Titans partner.",
+    url: "https://www.newyorktitans.org/sponsors",
     images: [{ url: "/images/launch/community/sponsors-community-youth-volunteering.jpg" }],
   },
   twitter: {

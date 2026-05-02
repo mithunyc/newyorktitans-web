@@ -20,6 +20,7 @@ export const metadata: Metadata = {
     title: "Join Titans — New York Titans",
     description:
       "Players, coaches, mentors, and volunteers. Tell us how you want to be part of New York Titans.",
+    url: "https://www.newyorktitans.org/join",
     images: [{ url: "/images/launch/community/join-onboarding.jpg" }],
   },
   twitter: {
