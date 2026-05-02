@@ -6,6 +6,7 @@
  */
 
 import type { Metadata } from "next";
+import { ogImageUrl } from "@/lib/metadata";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Prose } from "@/components/ui/Prose";
@@ -21,14 +22,14 @@ export const metadata: Metadata = {
     description:
       "New York Titans is a nonprofit/community-first cricket organization. Our mission, values, and standards.",
     url: "https://www.newyorktitans.org/about",
-    images: [{ url: "/images/launch/portraits/about-founder-portrait.jpg" }],
+    images: [{ url: ogImageUrl("/images/launch/portraits/about-founder-portrait.jpg") }],
   },
   twitter: {
     card: "summary_large_image",
     title: "About — New York Titans",
     description:
       "New York Titans is a nonprofit/community-first cricket organization. Our mission, values, and standards.",
-    images: ["/images/launch/portraits/about-founder-portrait.jpg"],
+    images: [ogImageUrl("/images/launch/portraits/about-founder-portrait.jpg")],
   },
 };
 

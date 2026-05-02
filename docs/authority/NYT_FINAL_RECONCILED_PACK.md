@@ -197,7 +197,7 @@ Home, About, Team, Sponsors, Join, Contact, Code of Conduct (public summary), Pr
 - Domain canonical and redirects configured.
 - OG/social preview images for the 6 navigable pages plus Code of Conduct.
 - Sitemap, robots.txt, schema.org Organization markup.
-- Code of Conduct PDF download (using existing source document).
+- Code of Conduct source document download (DOCX source artifact for MVP; D-040).
 
 ### 7.3 Non-functional gates
 
@@ -294,7 +294,7 @@ A six-page, mobile-first, statically generated marketing website built on Next.j
 - Fonts: Self-hosted Fraunces (display) and Geist (body) via `next/font/google`.
 - Analytics: Plausible.
 - Logo: Current vectorized primary and emblem marks (SVG).
-- Code of Conduct: Public summary page at `/code-of-conduct`, full PDF available for download.
+- Code of Conduct: Public summary page at `/code-of-conduct`, source document available for download.
 
 ### 9.5 Testing Decisions
 
@@ -690,7 +690,7 @@ If photography is unavailable for the full roster at launch, ship Team with lead
 1. Hero: "Our Standards".
 2. Summary covering Behavior, Vilification, Substance Policy, Members Guidelines, Social Media. Rendered from `/content/pages/code-of-conduct-full.mdx`.
 3. Quote of the values list with short framing.
-4. Download link to the full PDF.
+4. Download link to the source document.
 5. CTA: Join Titans.
 
 ### 12.8 Thank-you pages
@@ -1050,22 +1050,22 @@ If this is not true after the gates pass, the site is not ready.
 
 ## 20. Final Risk Register
 
-| ID  | Risk                                              | Likelihood       | Impact | Mitigation                                                                                                                     |
-| --- | ------------------------------------------------- | ---------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------ |
-| R1  | Visual drift into AI-slop generic sports template | High             | High   | DESIGN.md binding. Visual regression baseline (D-031). PR review.                                                              |
-| R2  | Form submissions land in spam                     | High             | High   | Verified sending subdomain. SPF/DKIM/DMARC. Auto-responder QA from real iOS/Android devices on launch (D-029, 18.2).           |
-| R3  | Photography never materializes                    | Medium           | High   | Hard launch gate of 3 authentic photos (D-028). Image art-direction brief in repo.                                             |
-| R4  | Operator breaks the build editing content         | Low (post-D-024) | High   | JSON + MDX with Zod validation. PR previews. Operations doc with screenshots.                                                  |
-| R5  | Donation pathway launched before compliance ready | Low              | High   | Support page removed entirely from MVP (D-025). Reintroduction requires DECISION_LOG entry.                                    |
-| R6  | Sponsor inquiry receives spam                     | Medium           | Medium | Honeypot + server-side rate limit. Add Cloudflare Turnstile or hCaptcha only if abuse appears.                                 |
-| R7  | Coding agent overbuilds the stack                 | Medium           | High   | OUT_OF_SCOPE.md and this pack are binding. AGENTS.md in repo with dependency allowlist. PR review.                             |
-| R8  | Roster includes minors without consent            | Low              | High   | Zod schema requires `consentRecorded: true` when `isMinor: true`. Build fails otherwise.                                       |
-| R9  | Domain confusion or misconfigured redirects       | Low              | Medium | `www.newyorktitans.org` canonical; apex 308 to www (D-039). No secondary domain (D-038). Pre-launch verification step in 18.2. |
-| R10 | Updates page reintroduced and goes stale          | Medium           | Medium | Default OFF. Reintroduction requires documented publishing rhythm and DECISION_LOG entry.                                      |
-| R11 | Costs creep past ceiling                          | Low              | Low    | Soft cap $25/month tracked in operations doc; overrun triggers DECISION_LOG entry.                                             |
-| R12 | Sole-developer bus factor                         | Medium           | High   | Stack is conventional (Next.js + Vercel). Operations doc + AGENTS.md make handover possible.                                   |
-| R13 | Sponsor logo grid embarrassment                   | Medium           | Medium | `LogoStrip` renders nothing when supporter array is empty. Never use placeholder or filler logos.                              |
-| R14 | Code of Conduct summary diverges from source PDF  | Low              | Medium | Manual gate at launch (18.2). Operator playbook flags this whenever the source document is updated.                            |
+| ID  | Risk                                                  | Likelihood       | Impact | Mitigation                                                                                                                     |
+| --- | ----------------------------------------------------- | ---------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------ |
+| R1  | Visual drift into AI-slop generic sports template     | High             | High   | DESIGN.md binding. Visual regression baseline (D-031). PR review.                                                              |
+| R2  | Form submissions land in spam                         | High             | High   | Verified sending subdomain. SPF/DKIM/DMARC. Auto-responder QA from real iOS/Android devices on launch (D-029, 18.2).           |
+| R3  | Photography never materializes                        | Medium           | High   | Hard launch gate of 3 authentic photos (D-028). Image art-direction brief in repo.                                             |
+| R4  | Operator breaks the build editing content             | Low (post-D-024) | High   | JSON + MDX with Zod validation. PR previews. Operations doc with screenshots.                                                  |
+| R5  | Donation pathway launched before compliance ready     | Low              | High   | Support page removed entirely from MVP (D-025). Reintroduction requires DECISION_LOG entry.                                    |
+| R6  | Sponsor inquiry receives spam                         | Medium           | Medium | Honeypot + server-side rate limit. Add Cloudflare Turnstile or hCaptcha only if abuse appears.                                 |
+| R7  | Coding agent overbuilds the stack                     | Medium           | High   | OUT_OF_SCOPE.md and this pack are binding. AGENTS.md in repo with dependency allowlist. PR review.                             |
+| R8  | Roster includes minors without consent                | Low              | High   | Zod schema requires `consentRecorded: true` when `isMinor: true`. Build fails otherwise.                                       |
+| R9  | Domain confusion or misconfigured redirects           | Low              | Medium | `www.newyorktitans.org` canonical; apex 308 to www (D-039). No secondary domain (D-038). Pre-launch verification step in 18.2. |
+| R10 | Updates page reintroduced and goes stale              | Medium           | Medium | Default OFF. Reintroduction requires documented publishing rhythm and DECISION_LOG entry.                                      |
+| R11 | Costs creep past ceiling                              | Low              | Low    | Soft cap $25/month tracked in operations doc; overrun triggers DECISION_LOG entry.                                             |
+| R12 | Sole-developer bus factor                             | Medium           | High   | Stack is conventional (Next.js + Vercel). Operations doc + AGENTS.md make handover possible.                                   |
+| R13 | Sponsor logo grid embarrassment                       | Medium           | Medium | `LogoStrip` renders nothing when supporter array is empty. Never use placeholder or filler logos.                              |
+| R14 | Code of Conduct summary diverges from source document | Low              | Medium | Manual gate at launch (18.2). Operator playbook flags this whenever the source document is updated.                            |
 
 ---
 

@@ -6,6 +6,7 @@
  */
 
 import type { Metadata } from "next";
+import { ogImageUrl } from "@/lib/metadata";
 import { Image } from "@/components/ui/Image";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
@@ -37,14 +38,16 @@ export const metadata: Metadata = {
     description:
       "Support youth development, leadership, and a growing cricket culture in New York. Become a Titans partner.",
     url: "https://www.newyorktitans.org/sponsors",
-    images: [{ url: "/images/launch/community/sponsors-community-youth-volunteering.jpg" }],
+    images: [
+      { url: ogImageUrl("/images/launch/community/sponsors-community-youth-volunteering.jpg") },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Partner with us — New York Titans",
     description:
       "Support youth development, leadership, and a growing cricket culture in New York. Become a Titans partner.",
-    images: ["/images/launch/community/sponsors-community-youth-volunteering.jpg"],
+    images: [ogImageUrl("/images/launch/community/sponsors-community-youth-volunteering.jpg")],
   },
 };
 

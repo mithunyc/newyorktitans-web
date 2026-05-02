@@ -8,6 +8,7 @@
  */
 
 import type { Metadata } from "next";
+import { ogImageUrl } from "@/lib/metadata";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Heading } from "@/components/ui/Heading";
@@ -30,14 +31,14 @@ export const metadata: Metadata = {
     description:
       "The written standard every New York Titans player, coach, official, volunteer, and supporter is held to.",
     url: "https://www.newyorktitans.org/code-of-conduct",
-    images: [{ url: "/images/launch/action/team-match-action-02.jpg" }],
+    images: [{ url: ogImageUrl("/images/launch/action/team-match-action-02.jpg") }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Code of Conduct — New York Titans",
     description:
       "The written standard every New York Titans player, coach, official, volunteer, and supporter is held to.",
-    images: ["/images/launch/action/team-match-action-02.jpg"],
+    images: [ogImageUrl("/images/launch/action/team-match-action-02.jpg")],
   },
 };
 
