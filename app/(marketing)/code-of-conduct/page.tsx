@@ -8,6 +8,7 @@
  */
 
 import type { Metadata } from "next";
+import { ogImageUrl } from "@/lib/metadata";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Heading } from "@/components/ui/Heading";
@@ -29,14 +30,15 @@ export const metadata: Metadata = {
     title: "Code of Conduct — New York Titans",
     description:
       "The written standard every New York Titans player, coach, official, volunteer, and supporter is held to.",
-    images: [{ url: "/images/launch/action/team-match-action-02.jpg" }],
+    url: "https://www.newyorktitans.org/code-of-conduct",
+    images: [{ url: ogImageUrl("/images/launch/action/team-match-action-02.jpg") }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Code of Conduct — New York Titans",
     description:
       "The written standard every New York Titans player, coach, official, volunteer, and supporter is held to.",
-    images: ["/images/launch/action/team-match-action-02.jpg"],
+    images: [ogImageUrl("/images/launch/action/team-match-action-02.jpg")],
   },
 };
 
@@ -80,11 +82,11 @@ export default async function CodeOfConductPage() {
 
           <RuleGold className="mt-16" />
 
-          {/* PDF download if configured */}
-          {conduct.pdfDownload && (
+          {/* Document download if configured */}
+          {conduct.documentDownload && (
             <div className="mt-10">
-              <Button href={conduct.pdfDownload.href} variant="secondary" size="md" external>
-                {conduct.pdfDownload.label}
+              <Button href={conduct.documentDownload.href} variant="secondary" size="md" external>
+                {conduct.documentDownload.label}
               </Button>
             </div>
           )}

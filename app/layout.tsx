@@ -9,12 +9,12 @@
 
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
+import { SITE_URL, ogImageUrl } from "@/lib/metadata";
 import { fontVariables } from "./fonts";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import "./globals.css";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://newyorktitans.org";
 const PLAUSIBLE_DOMAIN = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN ?? "newyorktitans.org";
 
 export const metadata: Metadata = {
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/images/launch/team/home-hero-team-2025.jpg",
+        url: ogImageUrl("/images/launch/team/home-hero-team-2025.jpg"),
         width: 2200,
         height: 1650,
         alt: "New York Titans",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "New York Titans",
     description: "Cricket. Character. Community.",
-    images: ["/images/launch/team/home-hero-team-2025.jpg"],
+    images: [ogImageUrl("/images/launch/team/home-hero-team-2025.jpg")],
   },
   robots: {
     index: true,

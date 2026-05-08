@@ -6,6 +6,7 @@
  */
 
 import type { Metadata } from "next";
+import { ogImageUrl } from "@/lib/metadata";
 import { Image } from "@/components/ui/Image";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
@@ -23,13 +24,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Team — New York Titans",
     description: "The people behind New York Titans — leadership, players, and culture.",
-    images: [{ url: "/images/launch/team/team-group-primary.jpg" }],
+    url: "https://www.newyorktitans.org/team",
+    images: [{ url: ogImageUrl("/images/launch/team/team-group-primary.jpg") }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Team — New York Titans",
     description: "The people behind New York Titans — leadership, players, and culture.",
-    images: ["/images/launch/team/team-group-primary.jpg"],
+    images: [ogImageUrl("/images/launch/team/team-group-primary.jpg")],
   },
 };
 

@@ -72,7 +72,7 @@ jobs:
           # Provide stub env vars so build does not fail. Real secrets are
           # injected by Vercel at deploy time.
           RESEND_API_KEY: ci-stub
-          NEXT_PUBLIC_SITE_URL: https://newyorktitans.org
+          NEXT_PUBLIC_SITE_URL: https://www.newyorktitans.org
           NEXT_PUBLIC_PLAUSIBLE_DOMAIN: newyorktitans.org
         run: pnpm build
 
@@ -118,7 +118,7 @@ jobs:
       - name: Run visual regression
         env:
           RESEND_API_KEY: ci-stub
-          NEXT_PUBLIC_SITE_URL: https://newyorktitans.org
+          NEXT_PUBLIC_SITE_URL: https://www.newyorktitans.org
         run: pnpm test:visual
 
       - name: Upload visual diffs
@@ -161,7 +161,7 @@ jobs:
       - name: Run a11y scan
         env:
           RESEND_API_KEY: ci-stub
-          NEXT_PUBLIC_SITE_URL: https://newyorktitans.org
+          NEXT_PUBLIC_SITE_URL: https://www.newyorktitans.org
         run: pnpm test:a11y
 
   # ---------------------------------------------------------------------------
@@ -193,5 +193,5 @@ jobs:
       - name: Run Lighthouse CI
         env:
           RESEND_API_KEY: ci-stub
-          NEXT_PUBLIC_SITE_URL: https://newyorktitans.org
+          NEXT_PUBLIC_SITE_URL: https://www.newyorktitans.org
         run: pnpm lighthouse

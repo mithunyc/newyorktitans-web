@@ -29,10 +29,15 @@ export const CodeOfConductSchema = z.object({
     .array(z.string().min(1).max(40))
     .min(3, "List at least 3 values.")
     .max(8, "List at most 8 values."),
-  pdfDownload: z
+  documentDownload: z
     .object({
       label: z.string().min(1).max(60),
-      href: z.string().regex(/^\/downloads\/.+\.pdf$/i, "PDF download must live under /downloads/"),
+      href: z
+        .string()
+        .regex(
+          /^\/downloads\/.+\.(pdf|docx)$/i,
+          "Download must live under /downloads/ and be PDF or DOCX",
+        ),
     })
     .optional(),
 });

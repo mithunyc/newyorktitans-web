@@ -10,6 +10,7 @@
  */
 
 import type { Metadata } from "next";
+import { ogImageUrl } from "@/lib/metadata";
 import { Image } from "@/components/ui/Image";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
@@ -31,14 +32,15 @@ export const metadata: Metadata = {
     title: "New York Titans — Cricket. Character. Community.",
     description:
       "A nonprofit/community-first cricket organization in New York. Built for talent, character, and community.",
-    images: [{ url: "/images/launch/team/home-hero-team-2025.jpg" }],
+    url: "https://www.newyorktitans.org",
+    images: [{ url: ogImageUrl("/images/launch/team/home-hero-team-2025.jpg") }],
   },
   twitter: {
     card: "summary_large_image",
     title: "New York Titans — Cricket. Character. Community.",
     description:
       "A nonprofit/community-first cricket organization in New York. Built for talent, character, and community.",
-    images: ["/images/launch/team/home-hero-team-2025.jpg"],
+    images: [ogImageUrl("/images/launch/team/home-hero-team-2025.jpg")],
   },
 };
 

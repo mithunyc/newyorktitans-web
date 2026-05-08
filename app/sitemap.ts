@@ -7,7 +7,7 @@
 
 import type { MetadataRoute } from "next";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://newyorktitans.org";
+const SITE_URL = "https://www.newyorktitans.org";
 
 const PUBLIC_ROUTES: Array<{
   path: string;

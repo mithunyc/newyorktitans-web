@@ -8,6 +8,7 @@
  */
 
 import type { Metadata } from "next";
+import { ogImageUrl } from "@/lib/metadata";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
 import { Heading } from "@/components/ui/Heading";
@@ -26,14 +27,15 @@ export const metadata: Metadata = {
     title: "Contact — New York Titans",
     description:
       "Get in touch with New York Titans. Partnership, player, volunteer, or general enquiries welcome.",
-    images: [{ url: "/images/launch/action/team-match-action-01.jpg" }],
+    url: "https://www.newyorktitans.org/contact",
+    images: [{ url: ogImageUrl("/images/launch/action/team-match-action-01.jpg") }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Contact — New York Titans",
     description:
       "Get in touch with New York Titans. Partnership, player, volunteer, or general enquiries welcome.",
-    images: ["/images/launch/action/team-match-action-01.jpg"],
+    images: [ogImageUrl("/images/launch/action/team-match-action-01.jpg")],
   },
 };
 
