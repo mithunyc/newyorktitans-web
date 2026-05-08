@@ -46,12 +46,37 @@ export function MobileDrawer({
   const [hasOpened, setHasOpened] = useState(false);
 
   // Lock body scroll when open.
+  //
+  // Android Chrome ignores `overflow: hidden` on <body> when a
+  // transform-based element is animating — the page drifts left.
+  // The cross-browser fix: capture the current scroll offset, apply
+  // `position: fixed` + `width: 100%` + `top: -scrollY` to body,
+  // then restore everything (including scroll position) on close.
+  // iOS Safari already handles `overflow: hidden` correctly, so this
+  // is safe on both platforms.
   useEffect(() => {
     if (!open) return;
-    const original = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+
+    const scrollY = window.scrollY;
+    const body = document.body;
+
+    const prevPosition = body.style.position;
+    const prevTop = body.style.top;
+    const prevWidth = body.style.width;
+    const prevOverflow = body.style.overflow;
+
+    body.style.position = "fixed";
+    body.style.top = `-${scrollY}px`;
+    body.style.width = "100%";
+    body.style.overflow = "hidden";
+
     return () => {
-      document.body.style.overflow = original;
+      body.style.position = prevPosition;
+      body.style.top = prevTop;
+      body.style.width = prevWidth;
+      body.style.overflow = prevOverflow;
+      // Restore the scroll position silently.
+      window.scrollTo({ top: scrollY, behavior: "instant" });
     };
   }, [open]);
 
